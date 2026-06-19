@@ -1,0 +1,138 @@
+﻿@using Gym.BusinessLogic.ViewModels.Session
+@model IEnumerable<SessionViewModel>
+
+@{
+    ViewData["Title"] = "Bookings";
+  
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="form-header-zone mb-4">
+                <h2 class="member-name-heading">Member Sessions</h2>
+                <p class="text-muted">Sessions valid for managing user bookings and reservations</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                @foreach (var session in Model.Where(X => X.Status == "Upcoming"))
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="tech-session-card h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="card-tech-header d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="session-category-title m-0">
+                                        <i class="bi bi-calendar-event me-2 text-orange"></i>@session.CategoryName
+                                    </h5>
+                                    <span class="status-badge-upcoming">@session.Status</span>
+                                </div>
+
+                                <p class="session-desc-text">@session.Description</p>
+
+                                <div class="session-meta-spec-grid">
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-person-circle"></i>
+                                        <span><strong>Trainer:</strong> @session.TrainerName</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span><strong>Date:</strong> @session.DateDisplay</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span><strong>Time:</strong> @session.TimeRangeDisplay</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-hourglass-split"></i>
+                                        <span><strong>Duration:</strong> @session.Duration</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-people"></i>
+                                        <span><strong>Capacity:</strong> <strong class="text-orange-bold">@session.AvailableSlots</strong> / @session.Capacity slots</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-tech-footer mt-4">
+                                <a asp-action="UpComingSessions" asp-route-id="@session.Id" class="btn-cancel-outline w-100 text-center py-2">
+                                    <i class="bi bi-eye me-2"></i>View Members
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+            <div class="form-header-zone mb-4 mt-5">
+                <h2 class="member-name-heading">Ongoing Sessions</h2>
+                <p class="text-muted">Live training sessions active right now for attendance management</p>
+            </div>
+
+            <div class="row g-4">
+                @foreach (var session in Model.Where(X => X.Status == "Ongoing"))
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="tech-session-card ongoing-border h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="card-tech-header d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="session-category-title m-0">
+                                        <i class="bi bi-calendar-event me-2 text-success"></i>@session.CategoryName
+                                    </h5>
+                                    <span class="status-badge-ongoing">@session.Status</span>
+                                </div>
+
+                                <p class="session-desc-text">@session.Description</p>
+
+                                <div class="session-meta-spec-grid">
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-person-circle"></i>
+                                        <span><strong>Trainer:</strong> @session.TrainerName</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span><strong>Date:</strong> @session.DateDisplay</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-clock"></i>
+                                        <span><strong>Time:</strong> @session.TimeRangeDisplay</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-hourglass-split"></i>
+                                        <span><strong>Duration:</strong> @session.Duration</span>
+                                    </div>
+                                    <div class="meta-spec-item">
+                                        <i class="bi bi-people"></i>
+                                        <span><strong>Capacity:</strong> <strong class="text-success-bold">@session.AvailableSlots</strong> / @session.Capacity slots</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-tech-footer mt-4">
+                                <a asp-action="OngoingSessions" asp-route-id="@session.Id" class="btn-ongoing-action w-100 text-center py-2">
+                                    <i class="bi bi-person-check-fill me-2"></i>Manage Attendance
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="empty-sessions-state text-center py-5 mt-5">
+                <div class="empty-icon-wrapper mb-4">
+                    <i class="bi bi-calendar-x"></i>
+                </div>
+                <h4 class="empty-title mb-2">No Active Sessions Available</h4>
+                <p class="text-muted">Create training sessions first to manage reservations and attendance trackers.</p>
+            </div>
+        }
+
+    </main>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/Bookings.css" />
+}

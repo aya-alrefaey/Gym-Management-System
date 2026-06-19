@@ -1,0 +1,181 @@
+﻿
+.form-header-zone {
+    border-bottom: 2px solid #fff5f2;
+    padding-bottom: 1.2rem;
+}
+
+.member-name-heading {
+    color: var(--dark-color, #111827) !important;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.form-header-zone .text-muted {
+    color: #94a3b8 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+
+.tech-session-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 14px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01) !important;
+    transition: all 0.25s ease-in-out;
+}
+
+    .tech-session-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--primary-color, #ff4a17) !important;
+        box-shadow: 0 12px 24px rgba(255, 74, 23, 0.06) !important;
+    }
+
+
+    .tech-session-card.ongoing-border:hover {
+        border-color: #10b981 !important;
+        box-shadow: 0 12px 24px rgba(16, 185, 129, 0.06) !important;
+    }
+
+.session-category-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.text-orange {
+    color: var(--primary-color, #ff4a17) !important;
+}
+
+.session-desc-text {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-top: 8px;
+    margin-bottom: 20px;
+}
+
+.session-meta-spec-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.meta-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: #334155;
+    font-weight: 500;
+}
+
+    .meta-spec-item i {
+        font-size: 1rem;
+        color: #94a3b8; 
+    }
+
+.text-orange-bold {
+    color: var(--primary-color, #ff4a17);
+    font-weight: 700;
+}
+
+.text-success-bold {
+    color: #10b981;
+    font-weight: 700;
+}
+
+
+.status-badge-upcoming {
+    background-color: #fff5f2;
+    color: var(--primary-color, #ff4a17);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-badge-ongoing {
+    background-color: #ecfdf5;
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+.card-tech-footer {
+    border-top: 1px dashed #e2e8f0;
+    padding-top: 16px;
+}
+
+.btn-cancel-outline {
+    color: #475569 !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+    .btn-cancel-outline:hover {
+        background-color: #1e293b !important; 
+        color: #ffffff !important;
+        border-color: #1e293b !important;
+    }
+
+
+.btn-ongoing-action {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important; 
+    font-weight: 700 !important;
+    font-size: 0.88rem !important;
+    border-radius: 8px !important;
+    border: none !important;
+    text-decoration: none !important;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    transition: all 0.2s ease;
+}
+
+    .btn-ongoing-action:hover {
+        background: linear-gradient(135deg, #1e293b 0%, #111827 100%) !important; 
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+
+.empty-sessions-state {
+    padding: 80px 20px !important;
+}
+
+.empty-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background-color: #fff5f2;
+    border: 1px solid rgba(255, 74, 23, 0.15);
+    border-radius: 50%;
+    color: var(--primary-color, #ff4a17);
+    font-size: 2.5rem;
+}
+
+.empty-title {
+    color: #111827;
+    font-weight: 700;
+}

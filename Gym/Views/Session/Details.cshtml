@@ -1,0 +1,130 @@
+﻿@using Gym.BusinessLogic.ViewModels.Session
+@{
+    ViewData["Title"] = "Session Details";
+  
+}
+@model SessionViewModel
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card card-details-session border-0 shadow-none">
+                        <div class="card-body p-0">
+
+                            <div class="form-header-zone mb-5 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                                <div>
+                                    <small class="field-label-tag text-uppercase">Session Specifications</small>
+                                    <h2 class="member-name-heading mt-1">
+                                        <i class="bi bi-calendar-event-fill me-2 text-primary-color"></i>@Model.CategoryName
+                                    </h2>
+                                </div>
+                                <span class="badge status-badge-@Model.Status.ToLower()">@Model.Status</span>
+                            </div>
+
+                            <div class="session-desc-details-box mb-5">
+                                <h6 class="section-tech-heading mb-3">
+                                    <i class="bi bi-file-text-fill me-2"></i>Description
+                                </h6>
+                                <p class="mb-0 text-dark-spec">@Model.Description</p>
+                            </div>
+
+                            <div class="section-title-wrapper mb-4">
+                                <h5 class="section-tech-heading">Technical Specifications</h5>
+                                <div class="section-tech-line"></div>
+                            </div>
+
+                            <div class="row g-4">
+                                <div class="col-12 col-md-6">
+                                    <div class="input-field-box spec-box-view">
+                                        <div class="d-flex align-items-center">
+                                            <div class="spec-icon-wrapper me-3">
+                                                <i class="bi bi-person-circle"></i>
+                                            </div>
+                                            <div>
+                                                <small class="field-label-tag">Trainer</small>
+                                                <strong class="spec-value-text">@Model.TrainerName</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="input-field-box spec-box-view">
+                                        <div class="d-flex align-items-center">
+                                            <div class="spec-icon-wrapper me-3">
+                                                <i class="bi bi-people-fill"></i>
+                                            </div>
+                                            <div>
+                                                <small class="field-label-tag">Capacity Status</small>
+                                                <strong class="spec-value-text">@Model.AvailableSlots / @Model.Capacity spots</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="input-field-box spec-box-view">
+                                        <div class="d-flex align-items-center">
+                                            <div class="spec-icon-wrapper me-3">
+                                                <i class="bi bi-calendar-check-fill"></i>
+                                            </div>
+                                            <div>
+                                                <small class="field-label-tag">Start Date & Time</small>
+                                                <strong class="spec-value-text">@Model.StartDate</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="input-field-box spec-box-view">
+                                        <div class="d-flex align-items-center">
+                                            <div class="spec-icon-wrapper me-3">
+                                                <i class="bi bi-calendar-x-fill"></i>
+                                            </div>
+                                            <div>
+                                                <small class="field-label-tag">End Date & Time</small>
+                                                <strong class="spec-value-text">@Model.EndDate</strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="input-field-box spec-box-view highlighted-duration-box">
+                                        <div class="d-flex align-items-center">
+                                            <div class="spec-icon-wrapper me-3 duration-icon-orange">
+                                                <i class="bi bi-hourglass-split"></i>
+                                            </div>
+                                            <div>
+                                                <small class="field-label-tag">Calculated Duration</small>
+                                                <strong class="spec-value-text duration-highlight">
+                                                    @* @Model.Duration.Hours Hours @Model.Duration.Minutes Minutes *@
+                                                    @Model.Duration.Days Days  @Model.Duration.Hours Hours  @Model.Duration.Minutes Minutes
+                                                </strong>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <footer class="form-action-footer d-flex justify-content-start gap-3 mt-5">
+                                <a asp-action="Index" class="btn-cancel-outline">
+                                    <i class="bi bi-arrow-left me-2"></i>Back to List
+                                </a>
+                            </footer>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/SessionDetails.css" />
+}

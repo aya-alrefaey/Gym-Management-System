@@ -1,0 +1,139 @@
+﻿/* ==========================================================================
+   --- ستايل السجل الصحي المفرود والنظيف (Soft-Tech Health Record) ---
+   ========================================================================== */
+
+/* 1. إلغاء الكارد الخارجي الضخم وجعل الصفحة حرة ومفرودة */
+.card.shadow {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* هيدر الصفحة الرئيسي (Health Record) */
+.card-header.bg-primary-color {
+    background: transparent !important; /* شيلنا الخلفية الملونة الزحمة */
+    padding: 0 0 1.5rem 0 !important;
+    border-bottom: 1px solid #f1f5f9 !important; /* خط أفقي عريض ملو الشاشة */
+    text-align: left !important; /* محاذاة لليسار لتطابق باقي الصفحات */
+    margin-bottom: 2rem;
+}
+
+.card-header h3 {
+    color: var(--dark-color) !important; /* الأسود الرياضي الفخم للعنوان */
+    font-weight: 800;
+    font-size: 1.75rem;
+    letter-spacing: -0.5px;
+    margin: 0 !important;
+}
+
+/* تنظيف محتوى الكارد الداخلي */
+.card-body.p-4 {
+    padding: 0 !important;
+}
+
+/* 2. كروت المؤشرات الصحية الداخلية (Health Metrics Cards) */
+/* حولناها لصناديق فلات ناعمة جداً بظلال تكاد تكون غير مرئية */
+.card.border-0.bg-light.p-4 {
+    background-color: #f8fafc !important; /* رمادي فاتح نظيف ومريح للعين */
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 12px !important; /* زوايا دائرية ناعمة متناسقة مع السيستم */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.01) !important;
+    transition: all 0.2s ease-in-out;
+}
+
+/* تأثير الـ Hover المتناسق: الصندوق يلمح برتقالي كريمي دافئ عند مرور الماوس */
+.card.border-0.bg-light.p-4:hover {
+    background-color: #fffbf9 !important; /* اللمسة الكريمية التابعة للبراند */
+    border-color: rgba(255, 74, 23, 0.2) !important;
+    transform: translateY(-2px); /* رفعة خفيفة جداً تعطي إحساس بالفخامة */
+}
+
+/* 3. الدوائر الصغيرة الملونة والأيقونات (H, W, B, N) */
+/* الوزن والطول */
+.bg-primary-color.rounded-circle {
+    background-color: #fff5f2 !important; /* أرضية برتقالية ناعمة جداً */
+    border: 1px solid rgba(255, 74, 23, 0.15);
+}
+.bg-primary-color.rounded-circle span {
+    color: var(--primary-color) !important; /* الحرف نفسه يقلب برتقالي صريح */
+}
+
+/* فصيلة الدم */
+.bg-danger.rounded-circle {
+    background-color: #fef2f2 !important; /* أرضية حمراء دافئة وخفيفة */
+    border: 1px solid rgba(239, 68, 68, 0.1);
+}
+.bg-danger.rounded-circle span {
+    color: #ef4444 !important; /* حرف B بالأحمر الهادئ */
+}
+
+/* الملاحظات */
+.bg-warning.rounded-circle {
+    background-color: #fefce8 !important; /* أرضية صفراء هادئة */
+    border: 1px solid rgba(234, 179, 8, 0.1);
+}
+.bg-warning.rounded-circle span {
+    color: #ca8a04 !important; /* حرف N بالذهبي المكتوم */
+}
+
+/* 4. النصوص والأرقام داخل الكروت */
+/* أسماء المؤشرات (مثل Height, Weight) */
+.card-body h6.text-muted {
+    color: #64748b !important; /* رمادي احترافي */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* الأرقام والقيم (الوزن والطول) */
+.text-primary-color.mb-0 {
+    color: var(--dark-color) !important; /* الرقم بالأسود الفخم الواضح */
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+.text-primary-color.mb-0 small {
+    color: #94a3b8; /* تمييز الـ cm والـ kg برمادي هادئ أصغر */
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* قيمة فصيلة الدم والملاحظات */
+.card-body h4.text-danger {
+    color: #334155 !important; /* استبدلنا الأحمر الزاعق بالرمادي الداكن المريح للفراءة */
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 4px;
+}
+
+/* 5. فوتر الصفحة وزر العودة السفلي */
+.card-footer.bg-white {
+    background: transparent !important;
+    border-top: 1px solid #f1f5f9 !important;
+    padding: 2rem 0 0 0 !important;
+    margin-top: 1.5rem;
+}
+
+/* زر العودة المفرود */
+.btn-fill {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    border: none !important;
+    padding: 12px 28px !important;
+    border-radius: 8px !important; /* زوايا متناسقة */
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    width: auto !important; /* عشان مياخدش عرض الشاشة كلها لوحده ويبقى ضخم */
+}
+
+.btn-fill:hover {
+    background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important; /* يقلب أسود البراند */
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}

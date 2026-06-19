@@ -1,0 +1,126 @@
+﻿@using Gym.BusinessLogic.ViewModels.Session
+
+@{
+    ViewData["Title"] = "Sessions";
+    
+}
+@model IEnumerable<SessionViewModel>
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="Alert" class="alert alert-success alert-dismissible fade show">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+else if (TempData["ErrorMessage"] != null)
+{
+    <div id="Alert" class="alert alert-danger alert-dismissible fade show">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+     
+        <header class="d-flex justify-content-between mb-5 align-items-center form-header-zone">
+            <div>
+                <h2 class="member-name-heading mb-0">Training Sessions</h2>
+                <p class="text-muted">Manage gym training sessions and classes</p>
+            </div>
+           
+            <a asp-controller="Session" asp-action="Create" class="btn-save-submit text-decoration-none">
+                <i class="bi bi-plus-lg me-2"></i>Add Session
+            </a>
+        </header>
+
+        @if (Model != null && Model.Any())
+        {
+            <div class="row g-4">
+                @foreach (var session in Model)
+                {
+                    <div class="col-12 col-md-6 col-lg-4">
+                     
+                        <div class="session-tech-card">
+
+                      
+                            <div class="session-card-header d-flex justify-content-between align-items-center">
+                                <h5 class="session-category-title mb-0">
+                                    <i class="bi bi-calendar-event-fill me-2 text-primary-color"></i>@session.CategoryName
+                                </h5>
+                                <span class="badge status-badge-@session.Status.ToLower()">@session.Status</span>
+                            </div>
+
+                            <div class="session-card-body">
+                                <p class="session-desc text-muted">@session.Description</p>
+
+                                <div class="session-info-grid">
+                                    <div class="info-item-row">
+                                        <i class="bi bi-person-circle"></i>
+                                        <span><strong>Trainer:</strong> @session.TrainerName</span>
+                                    </div>
+                                    <div class="info-item-row">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span><strong>Start Date:</strong> @session.DateDisplay</span>
+                                    </div>
+                                    <div class="info-item-row">
+                                        <i class="bi bi-clock-fill"></i>
+                                        <span><strong>Time:</strong> @session.TimeRangeDisplay</span>
+                                    </div>
+                                    <div class="info-item-row">
+                                        <i class="bi bi-hourglass-split"></i>
+                                        <span><strong>Duration:</strong> @session.Duration</span>
+                                    </div>
+                                    <div class="info-item-row">
+                                        <i class="bi bi-people-fill"></i>
+                                        <span><strong>Capacity:</strong> @session.AvailableSlots / @session.Capacity slots</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                       
+                            <div class="session-card-footer">
+                                <div class="d-grid gap-2">
+                                    <a asp-action="Details" asp-route-id="@session.Id" class="btn-action-primary text-decoration-none">
+                                        <i class="bi bi-eye me-1"></i>View Details
+                                    </a>
+                                    <div class="d-flex gap-2">
+                                        <a asp-action="Edit" asp-route-id="@session.Id" class="btn-action-outline text-decoration-none flex-fill">
+                                            <i class="bi bi-pencil me-1"></i>Edit
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@session.Id" class="btn-action-delete text-decoration-none flex-fill">
+                                            <i class="bi bi-trash me-1"></i>Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="text-center py-5 empty-sessions-state">
+                <div class="empty-icon-wrapper">
+                    <i class="bi bi-calendar-x-fill"></i>
+                </div>
+                <h4 class="mt-4 empty-title">No Sessions Available</h4>
+                <p class="text-muted">Create your first training session to get started</p>
+            </div>
+        }
+
+    </main>
+</div>
+
+@* @section Scripts {
+    <partial name="_AlertBoxScript.cshtml" />
+} *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/Sessions.css" />
+}

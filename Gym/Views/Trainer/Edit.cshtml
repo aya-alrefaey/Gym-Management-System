@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Trainers";
+
+}
+@using Gym.BusinessLogic.ViewModels.Trainer
+@using Gym.enums
+@model EditTrainerViewModel
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card card-edit-trainer border-0 shadow-none">
+                        <div class="card-body p-0">
+                            
+                            <div class="form-header-zone mb-4">
+                                <div class="mb-2">
+                                    <small class="field-label-tag text-uppercase">Editing Profile For</small>
+                                    <h2 class="member-name-heading mt-1">@Model.Name</h2>
+                                </div>
+                                <p class="text-muted">Update trainer personal and professional credentials</p>
+                            </div>
+
+                            <form asp-action="Edit" method="post">
+                                <input hidden asp-for="Name" />
+                                
+                                <div class="section-title-wrapper mb-4">
+                                    <h5 class="section-tech-heading">Personal Information</h5>
+                                    <div class="section-tech-line"></div>
+                                </div>
+
+                                <div class="row g-4 mb-5">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Email Address <span class="text-danger">*</span></small>
+                                            <input asp-for="Email" type="email" class="form-control" />
+                                            <span asp-validation-for="Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Phone Number <span class="text-danger">*</span></small>
+                                            <input asp-for="Phone" type="tel" class="form-control" />
+                                            <span asp-validation-for="Phone" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Building Number <span class="text-danger">*</span></small>
+                                            <input asp-for="BuildingNo" class="form-control" />
+                                            <span asp-validation-for="BuildingNo" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">City <span class="text-danger">*</span></small>
+                                            <input asp-for="City" class="form-control" />
+                                            <span asp-validation-for="City" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-4">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Street <span class="text-danger">*</span></small>
+                                            <input asp-for="Street" class="form-control" />
+                                            <span asp-validation-for="Street" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section-title-wrapper mb-4">
+                                    <h5 class="section-tech-heading">Professional Information</h5>
+                                    <div class="section-tech-line"></div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Trainer Specialization <span class="text-danger">*</span></small>
+                                            <select asp-for="Specialties" asp-items="Html.GetEnumSelectList<Specialties>()" class="form-select">
+                                                <option value="">-- Select Specialist --</option>
+                                            </select>
+                                            <span asp-validation-for="Specialties" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="form-action-footer d-flex justify-content-end gap-3 mt-5">
+                                    <a asp-action="Index" class="btn-cancel-outline">
+                                        <i class="bi bi-arrow-left me-2"></i>Cancel
+                                    </a>
+                                    <button type="submit" class="btn-save-submit">
+                                        <i class="bi bi-check-lg me-2"></i>Update Trainer
+                                    </button>
+                                </footer>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/EditTrainer.css" />
+}

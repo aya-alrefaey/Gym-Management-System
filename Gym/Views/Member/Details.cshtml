@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Members";
+
+}
+@using Gym.BusinessLogic.ViewModels.Member
+@model MemberDetailsViewModel
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+        
+        <div class="full-page-details-wrapper">
+            
+            <div class="profile-header-flat">
+                <div class="d-flex align-items-center gap-4">
+                    <div class="avatar-holder">
+                        <img src=@(Model.PhotoUrl==null?Url.Content("~/images/personicon.jpg"):Model.PhotoUrl) alt="MemberPhoto" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;" />
+                    </div>
+                    <div class="header-info">
+                        <h2 class="text-primary-color">@Model.Name</h2>
+                        <h4 class="plan-badge">@(Model.Plan?? "No Plan")</h4>
+                    </div>
+                </div>
+                <hr class="header-divider-line" />
+            </div>
+
+            <div class="row g-5">
+                
+                <div class="col-lg-6">
+                    <div class="details-section-title">
+                        <i class="bi bi-person-lines-fill"></i> Personal Info
+                    </div>
+                    
+                    <div class="flat-data-row">
+                        <span class="text-muted">Email Address</span>
+                        <strong>@Model.Email</strong>
+                    </div>
+                    
+                    <div class="flat-data-row">
+                        <span class="text-muted">Phone Number</span>
+                        <strong>@Model.Phone</strong>
+                    </div>
+
+                    <div class="flat-data-row">
+                        <span class="text-muted">Gender</span>
+                        <strong>@Model.Gender</strong>
+                    </div>
+
+                    <div class="flat-data-row">
+                        <span class="text-muted">Date of Birth</span>
+                        <strong>@Model.DateOfBirth.ToString("dd/MM/yyyy")</strong>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="details-section-title">
+                        <i class="bi bi-card-checklist"></i> Membership Details
+                    </div>
+                    
+                    <div class="flat-data-row">
+                        <span class="text-muted">Membership Start Date</span>
+                        <strong>@(Model.MembershipStartDate==null?"No Membership":Model.MembershipStartDate)</strong>
+                    </div>
+                    
+                    <div class="flat-data-row">
+                        <span class="text-muted">Membership End Date</span>
+                        <strong>@(Model.MembershipEndDate == null ? "No Membership" : Model.MembershipEndDate)</strong>
+                    </div>
+                    
+                    <div class="flat-data-row">
+                        <span class="text-muted">Home Address</span>
+                        <strong>@Model.Address</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="action-footer-section mt-5">
+                <a asp-controller="Member" asp-action="Index" class="btn btn-fw-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back to List
+                </a>
+            </div>
+
+        </div>
+
+    </main>
+</div>

@@ -1,0 +1,88 @@
+﻿@using Gym.BusinessLogic.ViewModels.Membership
+@model MembershipCreateViewModel
+
+@{
+    ViewData["Title"] = "Create Membership";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div id="Alert" class="alert alert-danger alert-dismissible fade show mb-4">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i> 
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                  
+                    <div class="card card-create-membership border-0 shadow-none">
+                        <div class="card-body p-0">
+
+                         
+                            <div class="form-header-zone mb-4">
+                                <h2 class="member-name-heading">@ViewData["Title"]</h2>
+                                <p class="text-muted">Assign a training plan to an existing gym member</p>
+                            </div>
+
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                                <div class="row g-4 mb-4">
+                                
+                                    <div class="col-12">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Member <span class="text-danger">*</span></small>
+                                            <select asp-for="MemberId" asp-items="ViewBag.Members" class="form-select">
+                                                <option value="">-- Select Member --</option>
+                                            </select>
+                                            <span asp-validation-for="MemberId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                  
+
+                                    <div class="col-12">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Training Plan <span class="text-danger">*</span></small>
+                                            <select asp-for="PlanId" asp-items="ViewBag.Plans" class="form-select">
+                                                <option value="">-- Select Plan --</option>
+                                            </select>
+                                            <span asp-validation-for="PlanId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <footer class="form-action-footer d-flex justify-content-end gap-3 mt-5">
+                                    <a asp-action="Index" class="btn-cancel-outline">
+                                        <i class="bi bi-arrow-left me-2"></i>Cancel
+                                    </a>
+                                    <button type="submit" class="btn-save-submit">
+                                        <i class="bi bi-check-lg me-2"></i>Create Membership
+                                    </button>
+                                </footer>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    @* <partial name="_AlertBoxScript.cshtml" /> *@
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/CreateMembership.css" />
+}

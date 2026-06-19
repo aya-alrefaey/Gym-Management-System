@@ -1,0 +1,124 @@
+﻿@using Gym.BusinessLogic.ViewModels.Session
+@{
+    ViewData["Title"] = "Edit Session";
+}
+@model SessionEditViewModel
+@if (TempData["SuccessMessage"] != null)
+{
+    <div id="Alert" class="alert alert-success alert-dismissible fade show">
+        <i class="bi bi-check-circle-fill me-2"></i>
+        @TempData["SuccessMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+else if (TempData["ErrorMessage"] != null)
+{
+    <div id="Alert" class="alert alert-danger alert-dismissible fade show">
+        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+        @TempData["ErrorMessage"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card card-edit-session border-0 shadow-none">
+                        <div class="card-body p-0">
+
+                            <div class="form-header-zone mb-4">
+                                <h2 class="member-name-heading">Edit Session</h2>
+                                <p class="text-muted">Update session information, assigned trainer, and schedules</p>
+                            </div>
+
+                            <form asp-action="Edit" method="post">
+
+                                <div class="section-title-wrapper mb-4">
+                                    <h5 class="section-tech-heading">Session Information</h5>
+                                    <div class="section-tech-line"></div>
+                                </div>
+
+                                <div class="row g-4 mb-5">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Trainer <span class="text-danger">*</span></small>
+                                            <select asp-for="TrainerId" asp-items="ViewBag.Trainers" class="form-select">
+                                                <option value="">Select Trainer</option>
+                                            </select>
+                                            <span asp-validation-for="TrainerId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Description <span class="text-danger">*</span></small>
+                                            <textarea asp-for="Description" class="form-control" rows="3" placeholder="Update session content..."></textarea>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="section-title-wrapper mb-4">
+                                    <h5 class="section-tech-heading">Date & Time</h5>
+                                    <div class="section-tech-line"></div>
+                                </div>
+
+                                <div class="row g-4">
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Start Date & Time <span class="text-danger">*</span></small>
+                                            <input asp-for="StartDate" type="datetime-local" class="form-control" />
+                                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">End Date & Time <span class="text-danger">*</span></small>
+                                            <input asp-for="EndDate" type="datetime-local" class="form-control" />
+                                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="form-action-footer d-flex justify-content-end gap-3 mt-5">
+                                    <a asp-action="Index" class="btn-cancel-outline">
+                                        <i class="bi bi-arrow-left me-2"></i>Cancel
+                                    </a>
+                                    <button type="submit" class="btn-save-submit">
+                                        <i class="bi bi-check-lg me-2"></i>Update Session
+                                    </button>
+                                </footer>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+  
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const alertBox = document.getElementById("Alert");
+            if (alertBox) {
+                setTimeout(() => {
+                    alertBox.style.transition = "opacity 0.5s ease";
+                    alertBox.style.opacity = "0";
+                    setTimeout(() => alertBox.remove(), 500);
+                }, 1500);
+            }
+        });
+    </script>
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/EditSession.css" />
+}

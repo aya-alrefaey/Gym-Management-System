@@ -1,0 +1,104 @@
+﻿
+.card.card-delete-session {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.delete-icon-warning-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 100px;
+    background-color: #fff5f5; 
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 50%;
+    color: #ef4444;
+    font-size: 3rem;
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.08);
+}
+
+
+.member-name-heading.text-danger-color {
+    color: #111827 !important;
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+}
+
+.card-delete-session .text-muted {
+    color: #64748b !important;
+    font-weight: 500;
+}
+
+
+.tech-alert-warning-box {
+    background-color: #fff9f2 !important; 
+    border: 1px solid rgba(255, 107, 0, 0.15) !important;
+    border-radius: 10px !important;
+    padding: 16px 20px !important;
+    color: #b45309 !important; 
+    font-size: 0.92rem;
+    line-height: 1.6;
+    font-weight: 500;
+}
+
+    .tech-alert-warning-box strong {
+        font-weight: 700;
+        color: #d97706 !important;
+    }
+
+.form-action-footer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-cancel-outline {
+    color: #64748b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    padding: 12px 32px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+    .btn-cancel-outline:hover {
+        background-color: #f8fafc !important;
+        color: #111827 !important;
+        border-color: #94a3b8 !important;
+    }
+
+.btn-delete-submit {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important; 
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    border: none !important;
+    padding: 12px 32px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(239, 68, 68, 0.25) !important;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;
+    flex: 1;
+}
+
+    .btn-delete-submit:hover {
+        background: linear-gradient(135deg, #1e293b 0%, #111827 100%) !important; 
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    }

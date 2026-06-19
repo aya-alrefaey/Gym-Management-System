@@ -1,0 +1,101 @@
+﻿@using Gym.BusinessLogic.ViewModels.Booking
+@model IEnumerable<MembersAtSessionViewModel>
+
+@{
+    ViewData["Title"] = "Upcoming Sessions";
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="form-header-zone mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h2 class="member-name-heading">Session Members</h2>
+                <p class="text-muted">Members that have already booked a slot in this training session</p>
+            </div>
+            <div>
+                <a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn-save-submit">
+                    <i class="bi bi-plus-lg me-2"></i>New Booking
+                </a>
+            </div>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-success alert-dismissible fade show mb-4">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-danger alert-dismissible fade show mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <div class="membership-table-zone mt-4">
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table tech-flat-table align-middle">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-person-fill me-2"></i>Member Name</th>
+                                <th><i class="bi bi-calendar-check-fill me-2"></i>Booking Date</th>
+                                <th class="text-end"><i class="bi bi-gear-fill me-2"></i>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-bold text-dark-spec">@item.MemberName</td>
+                                    <td class="text-muted font-monospace">@item.BookingDate.ToString("MMM dd, yyyy - hh:mm tt")</td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form method="post" asp-action="Cancel" asp-route-id="@item.BookingId" class="m-0" onsubmit="return confirm('Are you sure you want to cancel this booking?');">
+                                                @* <input type="hidden" name="MemberId" value="@item.MemberId" readonly />
+                                                <input type="hidden" name="SessionId" value="@item.SessionId" readonly /> *@
+                                                <button type="submit" class="btn-action-delete btn-sm">
+                                                    <i class="bi bi-x-circle-fill me-1"></i>Cancel Booking
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="empty-sessions-state text-center py-5">
+                    <div class="empty-icon-wrapper mb-4">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+                    <h4 class="empty-title mb-2">No Bookings Available</h4>
+                    <p class="text-muted">Add your first gym member booking to get this session started.</p>
+                </div>
+            }
+        </div>
+
+        <footer class="form-action-footer d-flex justify-content-start mt-5">
+            <a asp-controller="Booking" asp-action="Index" class="btn-cancel-outline">
+                <i class="bi bi-arrow-left me-2"></i>Back to Sessions List
+            </a>
+        </footer>
+
+    </main>
+</div>
+
+@* @section Scripts {
+    <partial name="_AlertBoxScript.cshtml" />
+} *@
+@section Styles {
+    <link class="styles" rel="stylesheet" href="~/css/BookingDetails.css" />
+}

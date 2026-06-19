@@ -1,0 +1,116 @@
+﻿@{
+    ViewData["Title"] = "Trainers";
+
+}
+@using Gym.BusinessLogic.ViewModels.Trainer
+@using Gym.enums
+@model TrainerCreateViewModel
+<div class="container mt-4">
+    <header class="mb-4">
+        <h3 class="text-primary-color">Add New Trainer</h3>
+    </header>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger shadow-sm mb-3 w-100">
+            @TempData["Error"]
+        </div>
+    }
+
+    <form method="post" asp-action="Create">
+
+        <!-- Trainer Info -->
+        <div class="section-header mb-3">
+            <h5 class="text-primary fw-bold">Personal Information</h5>
+            <hr class="mt-2">
+        </div>
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <label asp-for="Name" class="form-label"></label>
+                <input asp-for="Name" type="text" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label asp-for="Email" class="form-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label asp-for="Phone" class="form-label"></label>
+                <input asp-for="Phone" class="form-control" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label asp-for="DateOfBirth" class="form-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" type="date" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label asp-for="Gender" class="form-label"></label>
+                <select asp-for="Gender" asp-items="Html.GetEnumSelectList<Gender>()" class="form-select">
+                    <option value="">-- Select Gender --</option>
+                </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+
+        </div>
+        <div class="section-header mb-3 mt-4">
+            <h5 class="text-primary fw-bold">Address Information</h5>
+            <hr class="mt-2">
+        </div>
+        <div class="row g-3">
+
+            <div class="col-12 col-md-6">
+                <label asp-for="BuildingNo" class="form-label"></label>
+                <input asp-for="BuildingNo" class="form-control" />
+                <span asp-validation-for="BuildingNo" class="text-danger"></span>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <label asp-for="Street" class="form-label"></label>
+                <input asp-for="Street" class="form-control" />
+                <span asp-validation-for="Street" class="text-danger"></span>
+            </div>
+            <div class="col-12 col-md-6">
+                <label asp-for="City" class="form-label"></label>
+                <input asp-for="City" class="form-control" />
+                <span asp-validation-for="City" class="text-danger"></span>
+            </div>
+        </div>
+        <!-- Professional Information -->
+        <div class="section-header mb-3 mt-4">
+            <h5 class="text-primary fw-bold">Professional Information</h5>
+            <hr class="mt-2">
+        </div>
+        <div class="row g-3">
+
+            <div class="col-12 col-md-6">
+                <label asp-for="Specialties" class="form-label"></label>
+                <select asp-for="Specialties" asp-items="Html.GetEnumSelectList<Specialties>()" class="form-select">
+                    <option value="">-- Select Specialist --</option>
+                </select>
+                <span asp-validation-for="Specialties" class="text-danger"></span>
+            </div>
+        </div>
+
+        <footer class="d-flex justify-content-end mt-4">
+            <button type="submit" class="btn btn-fill" style="background: linear-gradient(135deg, var(--primary-color) 0%,
+                #ff6b42 100%) !important; color: #ffffff !important; font-weight: 700 !important; font-size:
+                0.9rem; border: none !important; padding: 10px 24px !important; border-radius: 8px !important; box-shadow:
+                0 4px 14px rgba(255, 74, 23, 0.15); display: inline-flex; align-items: center; text-decoration: none; transition:
+                all 0.2s ease;">
+                Add
+            </button>
+        </footer>
+    </form>
+
+</div>
+
+@section Scripts{
+ 
+    <partial name="_ValidationScriptsPartial" />
+    
+}

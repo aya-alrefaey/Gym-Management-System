@@ -1,0 +1,104 @@
+﻿@using Gym.BusinessLogic.ViewModels.Booking
+@model IEnumerable<MembersAtSessionViewModel>
+
+@{
+    ViewData["Title"] = "Session Attendance";
+   
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="form-header-zone mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h2 class="member-name-heading">Session Attendance</h2>
+                <p class="text-muted">Track and mark attendance for members registered in this live session</p>
+            </div>
+        </div>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-success alert-dismissible fade show mb-4">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-danger alert-dismissible fade show mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <div class="membership-table-zone mt-4">
+            @if (Model != null && Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table tech-flat-table align-middle">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-person-fill me-2"></i>Member Name</th>
+                                <th class="text-end"><i class="bi bi-shield-check me-2"></i>Attendance Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-bold text-dark-spec">@item.MemberName</td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end align-items-center">
+                                            @if (item.IsAttended)
+                                            {
+                                                <span class="status-badge-attended">
+                                                    <i class="bi bi-check-circle-fill me-1"></i> Attended
+                                                </span>
+                                            }
+                                            else
+                                            {
+                                                <form asp-action="Attendance" method="post" class="m-0" asp-route-id="@item.BookingId">
+                                                    @* <input type="hidden" name="MemberId" value="@item.MemberId" />
+                                                    <input type="hidden" name="SessionId" value="@item.SessionId" /> *@
+                                                    <button type="submit" class="btn-action-attendance btn-sm">
+                                                        <i class="bi bi-calendar-check me-1"></i> Mark as Attended
+                                                    </button>
+                                                </form>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="empty-sessions-state text-center py-5">
+                    <div class="empty-icon-wrapper mb-4 color-green-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <h4 class="empty-title mb-2">No Members Available</h4>
+                    <p class="text-muted">There are no gym members booked for this specific training session.</p>
+                </div>
+            }
+        </div>
+
+        <footer class="form-action-footer d-flex justify-content-start mt-5">
+            <a asp-controller="Booking" asp-action="Index" class="btn-cancel-outline">
+                <i class="bi bi-arrow-left me-2"></i>Back to Sessions List
+            </a>
+        </footer>
+
+    </main>
+</div>
+
+@* @section Scripts {
+    <partial name="_AlertBoxScript.cshtml" />
+} *@
+@section Styles {
+    <link rel="stylesheet" href="~/css/SessionAttendance.css" />
+}

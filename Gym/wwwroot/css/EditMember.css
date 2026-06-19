@@ -1,0 +1,158 @@
+﻿/* ==========================================================================
+   --- ستايل التعديل العصري المطور (Ultra-Clean Tech Edit Form) ---
+   ========================================================================== */
+
+/* 1. تصفير الكروت الافتراضية وحرية مساحة العمل ملو الشاشة */
+.card.card-details.border-0.shadow {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+/* 2. منطقة الهيدر وتقييد حجم الصورة الشخصية وتوسيطها */
+.profile-header-zone {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.profile-avatar-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* إجبار الصورة على مقاس سمارت 120 بكسل للتخلص من الضخامة */
+.profile-avatar-img {
+    width: 120px !important;
+    height: 120px !important;
+    object-fit: cover;
+    border-radius: 50% !important;
+    border: 4px solid #ffffff !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.3s ease-in-out;
+}
+
+    .profile-avatar-img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 12px 30px rgba(255, 74, 23, 0.15) !important;
+    }
+
+/* اسم المشترك */
+.member-name-heading {
+    color: var(--dark-color) !important;
+    font-weight: 800;
+    font-size: 1.6rem;
+    letter-spacing: -0.5px;
+    margin-top: 12px;
+}
+
+/* 3. حاويات خانات الإدخال البيضاء الناعمة (Input Field Boxes) */
+.input-field-box {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 10px 16px !important;
+    transition: all 0.25s ease-in-out;
+}
+
+/* مسميات الحقول العلوية الصغيرة */
+.field-label-tag {
+    color: #94a3b8 !important;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-bottom: 2px;
+}
+
+/* 4. خانات الكتابة (Form Controls) */
+.input-field-box .form-control {
+    background: transparent !important;
+    border: none !important;
+    padding: 4px 0 !important;
+    color: #1e293b !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    box-shadow: none !important;
+    width: 100%;
+}
+
+/* تأثير الإضاءة النيون البرتقالي عند الضغط للكتابة */
+.input-field-box:focus-within {
+    background-color: #ffffff !important;
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 4px rgba(255, 74, 23, 0.08) !important;
+}
+
+/* نصوص الأخطاء تحت الحقول */
+.text-danger {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #ef4444 !important;
+    margin-top: 4px;
+    display: block;
+}
+
+/* 5. فوتر الأزرار السفلي والتنسيق المطور المفرود */
+.form-action-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+    margin-top: 2.5rem !important;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+/* زر العودة (Back to List) - الـ Outline المطور */
+.btn-cancel-outline {
+    color: #64748b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-cancel-outline:hover {
+        background-color: #f8fafc !important;
+        color: var(--dark-color) !important;
+        border-color: #94a3b8 !important;
+    }
+
+/* زر الحفظ والتأكيد الأساسي (Done) بجودة عالية */
+.btn-save-submit {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    border: none !important;
+    padding: 10px 28px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15) !important;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    outline: none !important;
+}
+
+    .btn-save-submit:hover {
+        background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important; 
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    }

@@ -1,0 +1,83 @@
+﻿@using Gym.BusinessLogic.ViewModels.Booking
+
+@model CreateBookingViewModel
+
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                   
+                    <div class="card card-create-booking border-0 shadow-none">
+                        <div class="card-body p-0">
+                            @if(TempData["ErrorMessage"] != null)
+                            {
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    @TempData["ErrorMessage"]
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                            }
+                            <div class="form-header-zone mb-4">
+                                <h2 class="member-name-heading">@ViewData["Title"]</h2>
+                                <p class="text-muted">Register an existing gym member into this training session slot</p>
+                            </div>
+
+                            <form asp-action="Create" method="post">
+                                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                                <input type="hidden" asp-for="SessionId" value="@ViewContext.RouteData.Values["id"]" readonly />
+
+                                <div class="row g-4 mb-4">
+                                   
+                                    <div class="col-12">
+                                        <div class="input-field-box">
+                                            <small class="field-label-tag">Select Gym Member <span class="text-danger">*</span></small>
+                                            <select asp-for="MemberId" asp-items="ViewBag.Members" class="form-select">
+                                                <option value="">-- Select Member --</option>
+                                            </select>
+                                            <span asp-validation-for="MemberId" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <footer class="form-action-footer d-flex justify-content-end gap-3 mt-5">
+                                    <a asp-action="UpComingSessions" asp-route-id="@ViewContext.RouteData.Values["id"]" class="btn-cancel-outline">
+                                        <i class="bi bi-arrow-left me-2"></i>Back to Session
+                                    </a>
+                                    <button type="submit" class="btn-save-submit">
+                                        <i class="bi bi-check-lg me-2"></i>Confirm Booking
+                                    </button>
+                                </footer>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function() {
+            // إضافة كلاس مخصص متوافق مع البراند عند استخدام Select2 إذا أردت تفعيله
+            $('#MemberId').select2({
+                placeholder: "Select a member",
+                allowClear: true,
+                width: '100%'
+            });
+        });
+    </script>
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/CreateBooking.css" />
+}

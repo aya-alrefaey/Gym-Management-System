@@ -1,0 +1,232 @@
+﻿/* ==========================================================================
+   --- ستايل لوحة التحكم بالحصص التدريبية (Vibrant Sessions Gym UI) ---
+   ========================================================================== */
+
+/* 1. هيدر الصفحة الموحد والمفرود */
+.form-header-zone {
+    border-bottom: 2px solid #fff5f2;
+    padding-bottom: 1.5rem;
+}
+
+.member-name-heading {
+    color: var(--dark-color, #111827) !important;
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+}
+
+/* 2. تصميم الكروت الفلات الذكية (Session Tech Card) */
+.session-tech-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 20px !important;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.25s ease-in-out;
+}
+
+    /* تأثير تحريك متوهج خفيف جداً وممتع عند المرور فوق الكارد */
+    .session-tech-card:hover {
+        border-color: rgba(255, 74, 23, 0.25) !important;
+        box-shadow: 0 8px 24px rgba(255, 74, 23, 0.05) !important;
+        transform: translateY(-2px);
+    }
+
+/* هيدر الكارد الفلات */
+.session-card-header {
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+
+.session-category-title {
+    color: var(--dark-color, #111827) !important;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+    .session-category-title i {
+        color: var(--primary-color, #ff4a17) !important; /* أيقونة برتقالية نارية */
+    }
+
+/* وصف الحصة */
+.session-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    min-height: 42px; /* الحفاظ على محاذاة الكروت */
+}
+
+/* 3. شبكة تفاصيل الحصة (Info Grid) */
+.session-info-grid {
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+}
+
+.info-item-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: 0.88rem;
+    color: #334155;
+}
+
+    .info-item-row:last-child {
+        margin-bottom: 0;
+    }
+
+    .info-item-row i {
+        color: var(--primary-color, #ff4a17) !important; /* لمسات الأيقونات برتقالي */
+        font-size: 1.05rem;
+        width: 18px;
+        text-align: center;
+    }
+
+    .info-item-row strong {
+        color: #64748b;
+        font-weight: 600;
+    }
+
+/* ==========================================================================
+   --- إصلاح بادجات الحالة (Status Badges Fixed) ---
+   ========================================================================== */
+
+/* الحفاظ على التنسيق العام للبادج ليكون واضح وظاهر دائماً */
+[class^="status-badge-"] {
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    padding: 6px 14px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+/* 1. الحالة: قادمة - Upcoming (أزرق مريح) */
+.status-badge-upcoming {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+}
+
+/* 2. الحالة: جارية الآن - Ongoing (أخضر رياضي تفاعلي) */
+.status-badge-ongoing {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+}
+
+/* 3. الحالة: منتهية - Finished (رمادي فلات هادئ) */
+.status-badge-finished {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+/* 5. فوتر الكارد وأزرار التحكم الموحدة */
+.session-card-footer {
+    margin-top: auto; /* دفع الأزرار دائماً لأسفل الكارد */
+    padding-top: 12px;
+    border-top: 1px solid #f1f5f9;
+}
+
+/* زر عرض التفاصيل الفخم (يقلب برتقالي متوهج عند الـ Hover) */
+.btn-action-primary {
+    background-color: #fff5f2 !important;
+    color: var(--primary-color, #ff4a17) !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 74, 23, 0.1);
+}
+
+    .btn-action-primary:hover {
+        background: linear-gradient(135deg, var(--primary-color, #ff4a17) 0%, #ff6b42 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(255, 74, 23, 0.15);
+    }
+
+/* أزرار الـ Outline (تعديل) */
+.btn-action-outline {
+    background-color: #ffffff !important;
+    color: #64748b !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-action-outline:hover {
+        background-color: #f8fafc !important;
+        color: var(--dark-color, #111827) !important;
+        border-color: #94a3b8 !important;
+    }
+
+/* زر الحذف الرياضي السلس */
+.btn-action-delete {
+    background-color: #fff5f5 !important;
+    color: #ef4444 !important;
+    border: 1px solid rgba(239, 68, 68, 0.1) !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-action-delete:hover {
+        background-color: #ef4444 !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(239, 68, 68, 0.15);
+    }
+
+/* 6. زر الإضافة الرئيسي الفخم العريض (Add Session) */
+.btn-save-submit {
+    background: linear-gradient(135deg, var(--primary-color, #ff4a17) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    border: none !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.2) !important;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    display: inline-flex !important;
+    align-items: center;
+}
+
+    .btn-save-submit:hover {
+        background: linear-gradient(135deg, #1e293b 0%, #111827 100%) !important; /* يقلب الأسود الفخم التفاعلي */
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15) !important;
+    }
+
+/* 7. شاشة الحصص الفارغة (Empty State) */
+.empty-sessions-state {
+    padding: 60px 20px !important;
+}
+
+.empty-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    background-color: #fff5f2;
+    border: 1px solid rgba(255, 74, 23, 0.15);
+    border-radius: 50%;
+    color: var(--primary-color, #ff4a17);
+    font-size: 2.5rem;
+}
+
+.empty-title {
+    color: var(--dark-color, #111827);
+    font-weight: 700;
+}

@@ -1,0 +1,89 @@
+﻿/* ==========================================================================
+   --- ستايل صفحة تأكيد الحذف النظيف (Soft-Tech Delete Confirmation) ---
+   ========================================================================== */
+
+/* 1. إلغاء صندوق الكارد التقليدي والظلال */
+.card.p-5.shadow {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important; /* شيلنا الـ padding عشان يفرش طبيعي */
+    text-align: left !important; /* محاذاة لليفت متناسقة مع السيستم */
+}
+
+/* 2. نص السؤال الرئيسي (Are you sure...؟) */
+.card p.fs-3.text-primary-color {
+    color: var(--dark-color) !important; /* الأسود الرياضي الفخم بدلاً من الأزرق */
+    font-weight: 800;
+    font-size: 1.6rem !important;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem !important;
+}
+
+/* 3. تنسيق صندوق التحذير (Bootstrap Alert Warning) */
+/* طوعناه عشان يبقى فلات وناعم ومريح جداً للعين بدل ألوان بوتستراب الفاقعة */
+.alert.alert-warning {
+    background-color: #fefce8 !important; /* أرضية صفراء هادئة ومكتومة (نفس كارت النوتس) */
+    border: 1px solid rgba(234, 179, 8, 0.2) !important;
+    border-radius: 8px !important;
+    color: #854d0e !important; /* نص بني داكن مريح للقراءة */
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 14px 16px !important;
+}
+
+    .alert.alert-warning strong {
+        font-weight: 800;
+        color: #ca8a04 !important; /* كلمة Warning بالذهبي الغامق */
+    }
+
+/* 4. أزرار التحكم السفلية المتوازية (Yes / No) */
+.buttons.d-flex {
+    margin-top: 2rem !important;
+}
+
+/* زر الإلغاء (NO / Back) */
+.btn-outline {
+    color: #64748b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+    .btn-outline:hover {
+        background-color: #f8fafc !important;
+        color: var(--dark-color) !important;
+        border-color: #cbd5e1 !important;
+    }
+
+/* زر التأكيد (Yes / Delete) */
+/* واخد التفاعل الناري بتاع السيستم ويقلب أسود فخم عند الـ Hover */
+.btn-fill {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .btn-fill:hover {
+        background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }

@@ -1,0 +1,179 @@
+﻿/* ==========================================================================
+   --- ستايل تفاصيل الحصة (Vibrant Orange Session Details) ---
+   ========================================================================== */
+
+/* 1. تصفير الحاوية لجعل الشاشة مفرودة بالكامل وفلات */
+.card.card-details-session {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 2. منطقة الهيدر العلوي الموحد للبراند */
+.form-header-zone {
+    border-bottom: 2px solid #fff5f2;
+    padding-bottom: 1.5rem;
+}
+
+.member-name-heading {
+    color: var(--dark-color, #111827) !important;
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+/* 3. بادجات الحالة الثابتة والملونة ذكياً */
+[class^="status-badge-"] {
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    padding: 6px 16px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+.status-badge-upcoming {
+    background-color: #e0f2fe !important;
+    color: #0369a1 !important;
+}
+
+.status-badge-ongoing {
+    background-color: #dcfce7 !important;
+    color: #15803d !important;
+}
+
+.status-badge-finished {
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+}
+
+/* 4. خطوط فواصل الأقسام بالبرتقالي الصريح */
+.section-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-tech-heading {
+    color: var(--primary-color, #ff4a17) !important; /* الهوية البرتقالية */
+    font-weight: 700;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+.section-tech-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255, 74, 23, 0.2), rgba(255, 74, 23, 0.02));
+}
+
+/* 5. تصميم صندوق الوصف الفلات النظيف */
+.session-desc-details-box {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.text-dark-spec {
+    color: #334155 !important;
+    font-size: 0.98rem;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* 6. صناديق تفاصيل البيانات التكنولوجية (Spec Box View) */
+.spec-box-view {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 10px !important;
+    padding: 14px 18px !important;
+    transition: all 0.2s ease-in-out;
+}
+
+    /* تأثير هوفر تكنولوجي متوهج خفيف جداً عند الوقوف على صندوق البيان */
+    .spec-box-view:hover {
+        border-color: rgba(255, 74, 23, 0.2) !important;
+        box-shadow: 0 4px 12px rgba(255, 74, 23, 0.03) !important;
+    }
+
+/* المسميات الصغيرة العلوية للبيان */
+.field-label-tag {
+    color: #94a3b8 !important;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* نصوص القيم والبيانات العريضة الفخمة */
+.spec-value-text {
+    color: #1e293b !important;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+}
+
+/* تنسيق دقيق للأيقونات وتوسيطها */
+.spec-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: #fafafa;
+    border-radius: 8px;
+    color: #64748b; /* رمادي هادئ للأيقونات العادية */
+    font-size: 1.3rem;
+}
+
+/* تمييز صندوق الوقت والمدة بالـ Gradient والتوهج البرتقالي الناري للسيستم */
+.highlighted-duration-box {
+    background-color: #fff5f2 !important; /* خلفية دافئة ناعمة */
+    border-color: rgba(255, 74, 23, 0.15) !important;
+}
+
+.duration-icon-orange {
+    background-color: var(--primary-color, #ff4a17) !important;
+    color: #ffffff !important; /* الأيقونة تقلب بيضاء داخل خلفية برتقالية نارية */
+    box-shadow: 0 4px 10px rgba(255, 74, 23, 0.2);
+}
+
+.duration-highlight {
+    color: var(--primary-color, #ff4a17) !important;
+    font-weight: 700;
+}
+
+/* 7. فوتر الأزرار الموحد (Back to List) */
+.form-action-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+    margin-top: 3.5rem !important;
+}
+
+/* زر العودة الموحد الـ Outline النظيف */
+.btn-cancel-outline {
+    color: #64748b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-cancel-outline:hover {
+        background-color: #f8fafc !important;
+        color: #111827 !important;
+        border-color: #94a3b8 !important;
+    }

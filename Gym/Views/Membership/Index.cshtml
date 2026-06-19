@@ -1,0 +1,100 @@
+﻿@using Gym.BusinessLogic.ViewModels.Membership
+@model IEnumerable<MembershipViewModel>
+
+@{
+    ViewData["Title"] = "Active Memberships";
+}
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="form-header-zone mb-4 d-flex justify-content-between align-items-center flex-wrap gap-3">
+            <div>
+                <h2 class="member-name-heading">Active Memberships</h2>
+                <p class="text-muted">Members that currently have active training plans</p>
+            </div>
+            <div>
+                <a asp-action="Create" class="btn-save-submit">
+                    <i class="bi bi-plus-lg me-2"></i>New Membership
+                </a>
+            </div>
+        </div>
+
+        <!-- رسائل التنبيه الذكية -->
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-success alert-dismissible fade show mb-4">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                @TempData["SuccessMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+        else if (TempData["ErrorMessage"] != null)
+        {
+            <div id="Alert" class="alert alert-danger alert-dismissible fade show mb-4">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                @TempData["ErrorMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        }
+
+        <!-- منطقة عرض البيانات الفلات المفتوحة -->
+        <div class="membership-table-zone mt-4">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table tech-flat-table align-middle">
+                        <thead>
+                            <tr>
+                                <th><i class="bi bi-person-fill me-2"></i>Member</th>
+                                <th><i class="bi bi-card-checklist me-2"></i>Plan</th>
+                                <th><i class="bi bi-calendar-range-fill me-2"></i>Start Date</th>
+                                <th><i class="bi bi-calendar-x-fill me-2"></i>End Date</th>
+                                <th class="text-end"><i class="bi bi-gear-fill me-2"></i>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td class="fw-bold text-dark-spec">@item.MemberName</td>
+                                    <td>
+                                        <span class="plan-tag-highlight">@item.PlanName</span>
+                                    </td>
+                                    <td class="text-muted font-monospace">@item.StartDate.ToString("MMM dd, yyyy")</td>
+                                    <td class="text-muted font-monospace">@item.EndDate.ToString("MMM dd, yyyy")</td>
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end gap-2">
+                                            <form method="post" asp-action="Cancel" asp-route-id="@item.Id" class="m-0" onsubmit="return confirm('Are you sure you want to cancel this membership?');">
+                                                @* <input type="hidden" name="id" value="@item.MemberId" /> *@
+                                                <button type="submit" class="btn-action-delete btn-sm">
+                                                    <i class="bi bi-x-circle-fill me-1"></i>Cancel Plan
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+              
+                <div class="empty-sessions-state text-center py-5">
+                    <div class="empty-icon-wrapper mb-4">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+                    <h4 class="empty-title mb-2">No Active Memberships Available</h4>
+                    <p class="text-muted">There are no active subscription records found in the system right now.</p>
+                </div>
+            }
+        </div>
+
+    </main>
+</div>
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/ActiveMemberships.css" />
+}

@@ -1,0 +1,1142 @@
+
+:root {
+    --primary-color: #ff4a17;
+    --primary-hover: #e03e0f;
+    --dark-color: #111111;
+    --secondary-dark: #1a1a1a;
+    --light-bg: #f8f9fa;
+    --text-muted: #6c757d;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-color: #ffffff;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Baloo Thambi 2', sans-serif;
+}
+
+.text-primary-color {
+    color: var(--primary-color) !important;
+}
+
+.bg-primary-color {
+    background-color: var(--primary-color) !important;
+}
+
+.navbar-brand {
+    letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+    .navbar .nav-link:hover,
+    .navbar .nav-link.active {
+        color: var(--primary-color) !important;
+    }
+
+.btn-primary-custom {
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .btn-primary-custom:hover {
+        background-color: var(--primary-hover);
+        border-color: var(--primary-hover);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.btn-outline-custom {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+    .btn-outline-custom:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+.hero-section {
+    background: linear-gradient(135deg, #ffffff 60%, #fff5f2 100%);
+}
+
+.stats-bar {
+    border-left: 4px solid var(--primary-color);
+    background-color: #ffffff;
+}
+
+.character-bg-shape {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, var(--primary-color), #ff8763);
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 30px rgba(255, 74, 23, 0.3);
+    animation: morphing 6s infinite ease-in-out;
+}
+
+@keyframes morphing {
+    0% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+
+    50% {
+        border-radius: 50% 50% 30% 70% / 50% 60% 40% 50%;
+    }
+
+    100% {
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    }
+}
+
+.moving-bar {
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.about-placeholder-box {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=600&auto=format&fit=crop') center/cover;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature-card {
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05) !important;
+        border-color: var(--primary-color);
+    }
+
+.bg-dark {
+    background-color: var(--dark-color) !important;
+}
+
+.bg-secondary-dark {
+    background-color: var(--secondary-dark) !important;
+}
+
+.workout-card {
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border: 1px solid rgba(255, 255, 255, 0.03) !important;
+}
+
+    .workout-card .text-muted {
+        color: #b3b7bc !important;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .workout-card:hover {
+        transform: translateY(-8px);
+        background-color: #222222 !important;
+        box-shadow: 0 12px 30px rgba(255, 74, 23, 0.18) !important;
+        border-color: rgba(255, 74, 23, 0.3) !important;
+    }
+
+    .workout-card .btn-link {
+        transition: all 0.3s ease;
+    }
+
+    .workout-card:hover .btn-link {
+        letter-spacing: 1px;
+        color: #ff6b42 !important;
+    }
+
+.count-badge {
+    min-width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+}
+
+.why-us-placeholder {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-bg) !important;
+}
+
+/* ---(Footer) --- */
+
+.main-footer {
+    background-color: #0f1012 !important;
+    font-family: 'Rubik', sans-serif;
+}
+
+.text-light-muted {
+    color: #b9bcbf !important;
+}
+
+.footer-title {
+    color: #ffffff;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+    .footer-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 35px;
+        height: 2px;
+        background-color: var(--primary-color);
+    }
+
+
+.floating-orange-bar {
+    position: relative;
+    top: -20px;
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    box-shadow: 0 10px 30px rgba(255, 74, 23, 0.3) !important;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+.bar-item {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.floating-orange-bar:hover .bar-item {
+    transform: scale(1.02);
+}
+
+.bar-separator {
+    opacity: 0.5;
+    font-weight: 300;
+}
+
+
+.footer-links-content {
+    padding-top: 20px;
+}
+
+.footer-bottom {
+    background-color: #0a0b0c;
+}
+
+    .footer-bottom border-secondary {
+        border-color: #222529 !important;
+    }
+
+.hover-primary:hover {
+    color: var(--primary-color) !important;
+    transition: color 0.2s ease-in-out;
+}
+
+/*-------*/
+/* ==========================================================================
+   --- تنسيقات صفحة خطط الاشتراكات (Membership Plans) ---
+   ========================================================================== */
+/* 1. تنسيقات عامة للعنوان والمقدمة */
+main h2.text-primary-color {
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+main p.text-muted {
+    font-size: 0.95rem;
+    color: var(--text-muted) !important;
+}
+
+/* 2. تصميم كارت الخطة (Plan Card) */
+.plan-card {
+    border-radius: 16px !important;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: #ffffff;
+    border: 1px solid #eaeaea !important;
+}
+
+    /* تأثير احترافي عند تحريك الماوس فوق الكارت */
+    .plan-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(255, 74, 23, 0.12) !important;
+        border-color: rgba(255, 74, 23, 0.3) !important;
+    }
+
+    /* هيدر الكارت الافتراضي (إذا كانت الخطة غير نشطة مثلاً) */
+    .plan-card .card-header {
+        background: #222222; /* رمادي داكن رياضي */
+        border-bottom: none;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        padding: 1.5rem 1rem !important;
+    }
+
+        /* إذا كانت الخطة نشطة (Active Plan) يتم تطبيق اللون البرتقالي الناري المطور */
+        .plan-card .card-header.bg-primary-color {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+        }
+
+    /* 3. تفاصيل محتوى الكارت */
+    .plan-card .card-body {
+        padding: 2rem 1.5rem !important;
+    }
+
+    /* تصميم عرض السعر */
+    .plan-card .display-4 {
+        font-family: 'Baloo Thambi 2', sans-serif;
+        font-weight: 800;
+        line-height: 1;
+    }
+
+    .plan-card small.text-muted {
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 0.85rem;
+    }
+
+    /* النصوص والأيقونات الداخلية */
+    .plan-card p {
+        font-size: 0.95rem;
+    }
+
+        .plan-card p i {
+            font-size: 1.1rem;
+            vertical-align: middle;
+        }
+
+        .plan-card p.small {
+            color: #555555;
+            background-color: var(--light-bg);
+            padding: 10px 12px;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary-color);
+            font-weight: 500;
+        }
+
+    /* 4. أزرار التحكم والعمليات (Buttons) */
+    .plan-card .btn-outline {
+        background-color: transparent;
+        border: 2px solid #e0e0e0;
+        color: var(--dark-color);
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 14px;
+        transition: all 0.3s ease;
+    }
+
+        /* زر عرض التفاصيل (View Details) عند الـ Hover */
+        .plan-card .btn-outline:hover {
+            border-color: var(--dark-color);
+            background-color: var(--dark-color);
+            color: #ffffff;
+        }
+
+        /* زر التعديل (Edit Button) */
+        .plan-card .btn-outline.flex-fill:first-of-type:hover {
+            border-color: #212529;
+            background-color: #212529;
+            color: white;
+        }
+
+    /* أزرار التنشيط والإيقاف التلقائية (Activate / Deactivate) */
+    /* زر الإيقاف (Deactivate) - أحمر رياضي */
+    .plan-card button.text-danger-custom,
+    .plan-card button:has(.bi-x-circle):hover {
+        border-color: #dc3545 !important;
+        background-color: #dc3545 !important;
+        color: white !important;
+    }
+
+    /* زر التنشيط (Activate) - أخضر رياضي */
+    .plan-card button.text-success-custom,
+    .plan-card button:has(.bi-check-circle):hover {
+        border-color: #198754 !important;
+        background-color: #198754 !important;
+        color: white !important;
+    }
+
+/* 5. تصميم حالة "لا توجد باقات متوفرة" (No Plans Available) */
+div:has(.bi-inbox).text-center {
+    background-color: var(--light-bg);
+    border-radius: 16px;
+    border: 2px dashed #e0e0e0;
+    margin-top: 30px;
+}
+
+div:has(.bi-inbox) .bi-inbox {
+    color: #cbd5e1 !important;
+}
+
+div:has(.bi-inbox) h4 {
+    font-weight: 700;
+}
+
+
+/*-----------------------------------------plan detailsssss-------------------------------------------------*/
+
+
+
+/* ==========================================================================
+   --- التصميم المائل العصري (محمي ومقيد لصفحة التفاصيل فقط) ---
+   ========================================================================== */
+
+/* استهداف الكارت الرئيسي اللي جواه سكشن الـ plan-details فقط */
+main .card:has(.plan-details) {
+    border-radius: 24px !important;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: none !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08) !important;
+    position: relative;
+}
+
+    /* الشريط الحركي الرفيع أعلى كارت التفاصيل فقط */
+    main .card:has(.plan-details)::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-color), #ff8763);
+        z-index: 10;
+    }
+
+    /* الهيدر المائل - لن يطبق إلا على هيدر صفحة التفاصيل */
+    main .card:has(.plan-details) .card-header {
+        background: linear-gradient(135deg, #111111 0%, #222222 100%) !important;
+        border-bottom: none;
+        padding: 3rem 2rem !important;
+        position: relative;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%) !important; /* القصة المائلة */
+    }
+
+        /* تلوين الهيدر المائل بالبرتقالي الناري لو الخطة نشطة */
+        main .card:has(.plan-details) .card-header.bg-primary-color {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+        }
+
+        main .card:has(.plan-details) .card-header h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        main .card:has(.plan-details) .card-header .bi-award {
+            font-size: 3.5rem !important;
+            color: #ffffff !important;
+        }
+
+    /* صندوق السعر العائم المتداخل مع القصة المائلة */
+    main .card:has(.plan-details) .card-body .bg-light {
+        background: #ffffff !important;
+        border: 2px dashed rgba(255, 74, 23, 0.15) !important;
+        margin-top: -55px !important; /* التداخل */
+        position: relative;
+        z-index: 5;
+        box-shadow: 0 10px 25px rgba(255, 74, 23, 0.08);
+        border-radius: 16px !important;
+        padding: 15px !important;
+    }
+
+/* تفاصيل الخطة داخل صفحة الـ Details */
+.plan-details .detail-item {
+    padding: 0 0 15px 0 !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px solid #f3f3f3 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+    .plan-details .detail-item:last-child {
+        border-bottom: none !important;
+    }
+
+/* جعل الأيقونات طائرة ونظيفة */
+.plan-details .icon-box {
+    background: transparent !important;
+    border: none !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+    .plan-details .icon-box i {
+        color: var(--primary-color) !important;
+        font-size: 1.4rem !important;
+    }
+
+.plan-details h6.text-muted {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #a0a5aa !important;
+}
+
+/* شارات الحالة المضيئة (Glow Status Dot) */
+.plan-details .badge {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 8px;
+    background: transparent !important;
+    padding: 0 !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+}
+
+    .plan-details .badge.bg-success {
+        color: #198754 !important;
+    }
+
+        .plan-details .badge.bg-success::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #198754;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #198754;
+            animation: statusPulse 1.8s infinite ease-in-out;
+        }
+
+    .plan-details .badge.bg-danger {
+        color: #6c757d !important;
+    }
+
+        .plan-details .badge.bg-danger::before {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background-color: #6c757d;
+            border-radius: 50%;
+        }
+
+/* زر العودة الخاص بصفحة التفاصيل فقط */
+main .card:has(.plan-details) .card-footer {
+    background-color: #fafafa !important;
+    border-top: 1px solid #f0f0f0 !important;
+    padding: 1.5rem 2rem !important;
+   
+  
+}
+
+    main .card:has(.plan-details) .card-footer .btn-outline {
+        background-color: #ffffff !important;
+        border: 1px solid #e0e0e0 !important;
+        color: var(--text-muted) !important;
+        font-weight: 600;
+        border-radius: 12px !important;
+        padding: 12px 24px !important;
+        display: inline-flex;
+       
+    }
+
+        main .card:has(.plan-details) .card-footer .btn-outline:hover {
+            background-color: var(--dark-color) !important;
+            border-color: var(--dark-color) !important;
+            color: #ffffff !important;
+            transform: translateY(-3px) !important;
+            
+        }
+
+@keyframes statusPulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.6;
+    }
+}
+
+/* ==========================================================================
+   --- ستايل تعديل الخطة المفرود باللون البرتقالي والأسود الرياضي ---
+   ========================================================================== */
+
+/* الحاوية الأساسية المفرودة بكامل الشاشة */
+.plan-full-width-edit {
+    background-color: #ffffff;
+    padding: 2.5rem 1.5rem;
+}
+
+/* صندوق الأيقونة العلوي: خلفية برتقالية صريحة مع تأثير نبض ناعم */
+.edit-header-section .icon-box-orange {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important; /* الأيقونة بالأبيض جوه الصندوق البرتقالي */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 74, 23, 0.25);
+}
+
+/* خط الفصل المطور: واخد تدرج ناري يفرش تحت العنوان */
+.edit-header-section .header-divider {
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color) 0%, #ff8763 50%, #f0f0f0 100%);
+    border: none;
+    margin-top: 1.5rem;
+    opacity: 1;
+}
+
+/* العناوين الجانبية للـ Inputs: باللون الأسود الرياضي الفخم */
+.fw-form-group .form-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--dark-color) !important;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+/* حقول الإدخال المطورة بالبرتقالي والأبيض */
+.fw-edit-input {
+    border: 2px solid #e1e8ed !important;
+    border-radius: 12px !important;
+    padding: 14px 18px !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: var(--dark-color) !important;
+    background-color: #ffffff !important;
+    transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+}
+
+    /* تأثير الفوكس الناري: تحول كامل ومبهر للحدود مع توهج برتقالي */
+    .fw-edit-input:focus {
+        border-color: var(--primary-color) !important;
+        background-color: #fffdfb !important; /* إضاءة خلفية دافئة جداً وناعمة داخل الـ Input */
+        box-shadow: 0 0 0 4px rgba(255, 74, 23, 0.12) !important;
+        outline: none;
+    }
+
+/* الإضافات الجانبية لخانة الأرقام (EGP / Days): برتقالية ناصعة لتجذب العين */
+.custom-addon {
+    background: linear-gradient(135deg, var(--dark-color) 0%, #222222 100%) !important;
+    border: 2px solid var(--dark-color) !important;
+    border-left: none !important;
+    border-radius: 0 12px 12px 0 !important;
+    color: #ffffff !important; /* النص أبيض فخم داخل الـ Addon الأسود */
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0 18px;
+}
+
+/* صندوق تحضين الـ Switch الجانبي: واخد بوردر برتقالي خفيف جداً يربطه بالتصميم */
+.status-box-wrapper {
+    background-color: #fffdfb;
+    padding: 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 74, 23, 0.15);
+}
+
+/* مفتاح التبديل الذكي (Orange & Black Switch) */
+.fw-edit-switch {
+    padding-top: 6px;
+}
+
+    .fw-edit-switch .form-check-input {
+        width: 2.8em !important;
+        height: 1.45em !important;
+        background-color: #e5e7eb;
+        border: none !important;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+        /* لما يكون الـ Switch شغال ينور بالبرتقالي البراند علطول */
+        .fw-edit-switch .form-check-input:checked {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 0 12px rgba(255, 74, 23, 0.3) !important;
+        }
+
+    .fw-edit-switch .form-check-label {
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: var(--dark-color);
+        cursor: pointer;
+    }
+
+/* شريط التحكم السفلي المفرود */
+.fw-action-bar {
+    border-top: 2px solid #f5f5f5;
+    padding-top: 2rem !important;
+}
+
+/* زر الحفظ: واخد التدرج البرتقالي الناري الصريح والملفت من البداية */
+.btn-fw-save {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-radius: 12px !important;
+    padding: 14px 36px !important;
+    border: none !important;
+    box-shadow: 0 5px 20px rgba(255, 74, 23, 0.2);
+    transition: all 0.3s ease;
+}
+
+    /* زر الحفظ عند الـ Hover يغمق ويتحول للأسود الفخم مع الحفاظ على الارتفاع */
+    .btn-fw-save:hover {
+        background: linear-gradient(135deg, var(--dark-color) 0%, #222222 100%) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+
+/* زر الإلغاء */
+.btn-fw-cancel {
+    background-color: #ffffff !important;
+    border: 2px solid #e1e8ed !important;
+    color: #6b7280 !important;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: 12px !important;
+    padding: 12px 28px !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-fw-cancel:hover {
+        background-color: #f9fafb !important;
+        color: var(--dark-color) !important;
+        border-color: var(--dark-color) !important;
+    }
+
+/* ==========================================================================
+   --- ستايل المينيمال الهادئ والنظيف لجدول المشتركين (Soft-Tech Light Mode) ---
+   ========================================================================== */
+
+/* 1. حاوية الجدول: بيضاء ناصعة، زوايا دائرية واسعة، وظل ناعم جداً شبه غير مرئي */
+.table-responsive {
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    padding: 15px !important;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02) !important; /* ظل خفيف جداً يدي إيحاء بالطفو */
+    border: 1px solid #f1f5f9 !important; /* حدود رمادية ناعمة مريحة */
+}
+
+.table {
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+}
+
+    /* هيدر الجدول: هادئ ومفتوح بدون كتل ملونة مزعجة */
+    .table thead tr {
+        border-bottom: 2px solid #f8fafc !important; /* خط رفيع جداً للفصل */
+    }
+
+    .table thead th {
+        padding: 16px 20px !important;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: #64748b !important; /* رمادي احترافي هادئ لعناوين الأعمدة */
+        border: none !important;
+    }
+
+    /* صفوف الجدول وتأثير التمرير الانسيابي الهادئ */
+    .table tbody tr {
+        border-bottom: 1px solid #f8fafc !important;
+        transition: all 0.2s ease-in-out;
+    }
+
+        .table tbody tr:last-child {
+            border-bottom: none !important;
+        }
+
+        /* عند الوقوف بالماوس: الصف بياخد خلفية برتقالية ناعمة جداً ودافئة (شبه كريمي) */
+        .table tbody tr:hover {
+            background-color: #fffbf9 !important; /* لمسة برتقالية هادئة جداً لا تزعج العين */
+        }
+
+    /* نصوص الخلايا: رمادي داكن فخم (Charcoal) بدلاً من الأسود الحاد */
+    .table tbody td {
+        padding: 18px 20px !important;
+        font-size: 0.92rem;
+        color: #334155 !important; /* لون هادئ ومريح جداً في القراءة */
+        font-weight: 500;
+        border: none !important;
+    }
+
+        /* عمود اسم المشترك: نبرزه بوزن أثقل ولون أغمق */
+        .table tbody td:nth-child(2) {
+            font-weight: 700;
+            color: var(--dark-color) !important;
+        }
+
+/* 2. الصورة الشخصية (Avatar) محاطة بإطار برتقالي رفيع ونظيف */
+.avatar img {
+    border: 2px solid #ffffff !important;
+    box-shadow: 0 0 0 2px var(--primary-color) !important; /* خط برتقالي رفيع كأنه هالة دائرية */
+}
+
+/* 3. قائمة الـ Dropdown الهادئة (Minimalist Dropdown) */
+.table .dropdown-menu {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+    padding: 6px !important;
+}
+
+.table .dropdown-item {
+    padding: 10px 14px !important;
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: #475569 !important;
+    border-radius: 8px !important;
+    transition: all 0.15s ease;
+}
+
+    /* عند الـ Hover داخل القائمة: يضيء بالبرتقالي الناعم مع كتابة برتقالية صريحة */
+    .table .dropdown-item:hover {
+        background-color: #fff5f2 !important; /* خلفية برتقالية فاتحة ناعمة */
+        color: var(--primary-color) !important; /* النص يقلب برتقالي البراند */
+    }
+
+    /* زر الحذف الهادئ */
+    .table .dropdown-item.text-danger {
+        color: #64748b !important; /* خفينا اللون الأحمر الفاقع وخليناه رمادي عادي */
+    }
+
+        .table .dropdown-item.text-danger:hover {
+            background-color: #fef2f2 !important;
+            color: #ef4444 !important; /* يقلب أحمر تحذيري فقط عند الـ Hover */
+        }
+
+.table .dropdown-divider {
+    border-top: 1px solid #f1f5f9 !important;
+    margin: 6px 0 !important;
+}
+
+/* 4. زر إضافة مشترك الجديد العالي التناسق (+ Add Member) */
+main header .btn-fill {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    border: none !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important; /* زوايا متناسقة مع الجدول بدلاً من الـ Pill الزحمة */
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15);
+    transition: all 0.2s ease;
+}
+
+    main header .btn-fill:hover {
+        background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important; /* يقلب للأسود الهادئ عند الـ Hover */
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+/* 5. تنسيق رسائل التنبيه العلوية الهادئة */
+main .alert-success {
+    background-color: #f0fdf4 !important; /* أخضر عشبي ناعم جداً ومريح */
+    color: #166534 !important;
+    border-radius: 8px !important;
+}
+
+main .alert-danger {
+    background-color: #fef2f2 !important; /* أحمر ناعم هادئ */
+    color: #991b1b !important;
+    border-radius: 8px !important;
+}
+
+/* ==========================================================================
+   --- ستايل تفاصيل المشترك المفرود ملو الشاشة بالكامل (Full Width Flat Details) ---
+   ========================================================================== */
+
+/* الحاوية الكبيرة المفتوحة بالكامل */
+.full-page-details-wrapper {
+    background-color: #ffffff;
+    width: 100% !important;
+    padding: 1rem 0;
+}
+
+/* 1. تنسيق الهيدر العريض (الأفقي المتناسق) */
+.profile-header-flat {
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+    .profile-header-flat img.rounded-circle {
+        border: 3px solid #ffffff !important;
+        box-shadow: 0 0 0 3px var(--primary-color) !important; /* الهالة البرتقالية التابعة للبراند */
+    }
+
+    .profile-header-flat h2.text-primary-color {
+        color: var(--dark-color) !important; /* الأسود الرياضي الفخم */
+        font-weight: 800;
+        font-size: 1.8rem;
+        margin: 0 0 6px 0 !important;
+        letter-spacing: -0.5px;
+    }
+
+    /* البادج البرتقالي الأنيق المتناسق مع الشاشة المفرودة */
+    .profile-header-flat .plan-badge {
+        display: inline-block !important;
+        background-color: #fff5f2 !important;
+        color: var(--primary-color) !important;
+        font-size: 0.85rem !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding: 6px 16px !important;
+        border-radius: 50px !important;
+    }
+
+/* خط الفصل العريض المطور تحت الهيدر */
+.header-divider-line {
+    border-top: 1px solid #f1f5f9;
+    margin-top: 1.5rem;
+    opacity: 1;
+}
+
+/* 2. عناوين الأقسام (Personal Info & Membership) */
+.details-section-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dark-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+    .details-section-title i {
+        color: var(--primary-color); /* الأيقونات الفرعية بالبرتقالي */
+    }
+
+/* 3. الصفوف المفتوحة العريضة جداً بكامل عرض العمود (Borderless Rows) */
+.flat-data-row {
+    border-bottom: 1px solid #f1f5f9 !important; /* خط الفصل الهادي السفلي */
+    padding: 16px 8px !important;
+    display: flex;
+    justify-content: space-between; /* رمي العنوان أقصى اليسار والقيمة أقصى اليمين */
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+
+    /* تأثير التمرير (Hover): متناسق مع جدول المشتركين */
+    .flat-data-row:hover {
+        background-color: #fffbf9 !important; /* اللمسة الكريمية البرتقالية المريحة للعين */
+        border-bottom-color: rgba(255, 74, 23, 0.3) !important;
+        padding-left: 16px !important; /* حركة إزاحة انسيابية ممتازة */
+    }
+
+    /* العناوين الجانبية الرمادية الهادئة */
+    .flat-data-row .text-muted {
+        color: #94a3b8 !important;
+        font-size: 0.9rem !important;
+        font-weight: 600;
+    }
+
+    /* القيم المقابلة لها بالأسود الرياضي الفخم */
+    .flat-data-row strong {
+        color: #334155 !important;
+        font-size: 0.95rem;
+        font-weight: 700;
+    }
+
+/* 4. زر العودة المفتوح أسفل الصفحة */
+.action-footer-section {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 2rem;
+}
+
+.btn-fw-back {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    border: none !important;
+    padding: 12px 28px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .btn-fw-back:hover {
+        background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important; /* يقلب للأسود الرياضي الفخم */
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+/* ==========================================================================
+   --- ستايل صفحة إضافة مشترك الهادئ والمفرود (Soft-Tech Form Style) ---
+   ========================================================================== */
+
+/* 1. عنوان الصفحة الرئيسي (Add Member) */
+main header h3.text-primary-color {
+    color: var(--dark-color) !important; /* الأسود الرياضي الفخم */
+    font-weight: 800;
+    font-size: 1.75rem;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+}
+
+/* 2. تنسيق شريط الـ Tabs العلوي (Form Tabs) */
+.nav-tabs {
+    border-bottom: 2px solid #f1f5f9 !important; /* خط رمادي رفيع تحت التابات */
+    gap: 8px;
+}
+
+    .nav-tabs .nav-link {
+        color: #64748b !important; /* لون رمادي هادئ للتابة غير النشطة */
+        font-weight: 700;
+        font-size: 0.95rem;
+        border: none !important;
+        padding: 12px 24px !important;
+        background: transparent !important;
+        position: relative;
+        transition: all 0.2s ease;
+    }
+
+        /* التابة النشطة (Active Tab) - بتعلم بالبرتقالي البراند */
+        .nav-tabs .nav-link.active {
+            color: var(--primary-color) !important; /* النص يقلب برتقالي صريح */
+        }
+
+            /* الخط البرتقالي السفلي المتحرك تحت التابة النشطة */
+            .nav-tabs .nav-link.active::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 100%;
+                height: 3px;
+                background-color: var(--primary-color);
+                border-radius: 3px;
+            }
+
+        .nav-tabs .nav-link:hover:not(.active) {
+            color: var(--dark-color) !important;
+            background-color: #f8fafc !important;
+            border-radius: 8px 8px 0 0;
+        }
+
+/* 3. عناوين السكاشن الداخلية (Personal Info / Address Info) */
+.section-header h5.text-primary {
+    color: var(--dark-color) !important; /* أسود فخم بدلاً من أزرق بوتستراب الافتراضي */
+    font-size: 1.05rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-header hr {
+    border-top: 1px dashed #e2e8f0 !important; /* خط فاصل منقط وهادئ جداً */
+    opacity: 1;
+}
+
+/* 4. تنسيق خانات الإدخال (Inputs & Selects) */
+.form-label {
+    color: #475569 !important; /* رمادي داكن احترافي للمسميات */
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 6px;
+}
+
+.form-control, .form-select {
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important; /* حدود هادئة ونظيفة */
+    border-radius: 8px !important; /* زوايا متناسقة مع أزرار السيستم */
+    padding: 10px 14px !important;
+    color: #334155 !important;
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: none !important;
+    transition: all 0.2s ease-in-out;
+}
+
+    /* سحر الـ Focus: أول ما تضغطي جوه الخانة عشان تكتبي */
+    .form-control:focus, .form-select:focus {
+        border-color: var(--primary-color) !important; /* الحدود تقلب برتقالي البراند */
+        background-color: #fffbf9 !important; /* الأرضية تاخد تلميح كريمي دافئ يطابق الجدول */
+        box-shadow: 0 0 0 3px rgba(255, 74, 23, 0.1) !important; /* هالة برتقالية مضيئة خفيفة جداً */
+    }
+
+/* 5. الفوتر وأزرار التحكم السفلية (Footer Buttons) */
+main footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+}
+
+    /* زر العودة (Back to List) */
+    main footer .btn-outline-secondary {
+        color: #64748b !important;
+        background-color: #ffffff !important;
+        border: 1px solid #e2e8f0 !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem;
+        padding: 10px 24px !important;
+        border-radius: 8px !important;
+        transition: all 0.2s ease;
+    }
+
+        main footer .btn-outline-secondary:hover {
+            background-color: #f8fafc !important;
+            color: var(--dark-color) !important;
+            border-color: #cbd5e1 !important;
+        }
+
+    /* زر الحفظ الأساسي (Add Button) */
+    main footer .btn-primary {
+        background: linear-gradient(135deg, var(--primary-color) 0%, #ff6b42 100%) !important;
+        color: #ffffff !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem;
+        border: none !important;
+        padding: 10px 28px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 14px rgba(255, 74, 23, 0.15);
+        transition: all 0.2s ease;
+    }
+
+        main footer .btn-primary:hover {
+            background: linear-gradient(135deg, #1e293b 0%, var(--dark-color) 100%) !important; /* يقلب للأسود الهادئ الفخم */
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+

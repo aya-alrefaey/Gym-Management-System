@@ -1,0 +1,97 @@
+﻿@{
+    ViewData["Title"] = "Members";
+
+}
+@using Gym.BusinessLogic.ViewModels.Member
+@model EditMemberViewModel
+
+<div class="container-fluid px-5">
+    <main role="main" class="pb-5 mt-4">
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card card-details border-0 shadow">
+                        <div class="card-body">
+                            
+                            <div class="profile-header-zone text-center mb-5">
+                                <div class="profile-avatar-wrapper mb-3">
+                                    <img src="@(Model.PhotoUrl == null ? Url.Content("~/images/personicon.jpg") : Model.PhotoUrl)"
+                                         alt="@Model.Name" class="profile-avatar-img" />
+                                </div>
+                                <h2 class="member-name-heading">@Model.Name</h2>
+                            </div>
+                            @if (TempData["Error"] != null)
+                            {
+                                <div class="alert alert-danger shadow-sm mb-3 w-100">
+                                    @TempData["Error"]
+                                </div>
+                            }
+                            <form asp-controller="Member" asp-action="Edit" method="post">
+                                <div class="mt-4 text-start">
+                                    <div class="row g-4">
+                                        <div class="col-12">
+                                            <div class="input-field-box">
+                                                <small class="field-label-tag">Email Address</small>
+                                                <input asp-for="Email" class="form-control" />
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="input-field-box">
+                                                <small class="field-label-tag">Phone Number</small>
+                                                <input asp-for="Phone" class="form-control" />
+                                                <span asp-validation-for="Phone" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6">
+                                            <div class="input-field-box">
+                                                <small class="field-label-tag">Building Number</small>
+                                                <input asp-for="BuildingNo" class="form-control" />
+                                                <span asp-validation-for="BuildingNo" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="input-field-box">
+                                                <small class="field-label-tag">City</small>
+                                                <input asp-for="City" class="form-control" />
+                                                <span asp-validation-for="City" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-12 col-md-6">
+                                            <div class="input-field-box">
+                                                <small class="field-label-tag">Street</small>
+                                                <input asp-for="Street" class="form-control" />
+                                                <span asp-validation-for="Street" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <footer class="form-action-footer d-flex justify-content-end gap-3 mt-5">
+                                    <a asp-controller="Member" asp-action="Index" class="btn-cancel-outline">
+                                        Back to List
+                                    </a>
+                                    <button type="submit" class="btn-save-submit">Done</button>
+                                </footer>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/EditMember.css" />
+}

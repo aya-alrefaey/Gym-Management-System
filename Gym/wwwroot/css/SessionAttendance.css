@@ -1,0 +1,170 @@
+﻿
+.form-header-zone {
+    border-bottom: 2px solid #f0fdf4; 
+    padding-bottom: 1.5rem;
+}
+
+.member-name-heading {
+    color: var(--dark-color, #111827) !important;
+    font-weight: 800;
+    font-size: 1.9rem;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+.form-header-zone .text-muted {
+    color: #94a3b8 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+
+.membership-table-zone {
+    background: transparent !important;
+}
+
+.tech-flat-table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0 12px !important;
+    margin-top: -12px;
+}
+
+  
+    .tech-flat-table thead tr th {
+        background-color: transparent !important;
+        color: #64748b !important;
+        font-weight: 700 !important;
+        font-size: 0.82rem !important;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        padding: 12px 20px !important;
+        border: none !important;
+    }
+
+        .tech-flat-table thead tr th i {
+            color: #10b981 !important; 
+        }
+
+  
+    .tech-flat-table tbody tr td {
+        background-color: #ffffff !important;
+        border-top: 1px solid #e2e8f0 !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        padding: 16px 20px !important;
+        font-size: 0.95rem;
+    }
+
+    
+        .tech-flat-table tbody tr td:first-child {
+            border-left: 1px solid #e2e8f0 !important;
+            border-top-left-radius: 10px !important;
+            border-bottom-left-radius: 10px !important;
+            text-align: left;
+        }
+
+        .tech-flat-table tbody tr td:last-child {
+            border-right: 1px solid #e2e8f0 !important;
+            border-top-right-radius: 10px !important;
+            border-bottom-right-radius: 10px !important;
+        }
+
+ 
+    .tech-flat-table tbody tr:hover td {
+        border-color: rgba(16, 185, 129, 0.2) !important;
+        background-color: #fbfdfc !important;
+    }
+
+        .tech-flat-table tbody tr:hover td:first-child {
+            border-left-color: #10b981 !important; 
+        }
+
+.text-dark-spec {
+    color: #1e293b !important;
+    font-weight: 700 !important;
+}
+
+
+.status-badge-attended {
+    background-color: #ecfdf5 !important;
+    color: #10b981 !important;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 6px 16px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+
+.btn-action-attendance {
+    background-color: #ffffff !important;
+    color: #10b981 !important;
+    border: 1px solid #10b981 !important;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 6px 16px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+    .btn-action-attendance:hover {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        border-color: transparent !important;
+    }
+
+
+.form-action-footer {
+    border-top: 1px solid #f1f5f9;
+    padding-top: 1.5rem;
+}
+
+.btn-cancel-outline {
+    color: #64748b !important;
+    background-color: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    font-weight: 700 !important;
+    font-size: 0.92rem !important;
+    padding: 10px 24px !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    transition: all 0.2s ease;
+}
+
+    .btn-cancel-outline:hover {
+        background-color: #f8fafc !important;
+        color: #111827 !important;
+        border-color: #94a3b8 !important;
+    }
+
+
+.empty-sessions-state {
+    padding: 60px 20px !important;
+}
+
+.empty-icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    font-size: 2.5rem;
+}
+
+    .empty-icon-wrapper.color-green-icon {
+        background-color: #ecfdf5;
+        border: 1px solid rgba(16, 185, 129, 0.15);
+        color: #10b981;
+    }
+
+.empty-title {
+    color: var(--dark-color, #111827);
+    font-weight: 700;
+}
