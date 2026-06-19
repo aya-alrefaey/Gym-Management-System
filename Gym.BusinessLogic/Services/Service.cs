@@ -5,12 +5,19 @@ using System.Text;
 using Gym.Models;
 using System.Threading.Tasks;
 using Gym.DataAccess.Repositories;
+using System.Linq.Expressions;
 
 namespace Gym.BusinessLogic.Services
 {
     public class Service<T> (IRepository<T> _repo): IService<T> where T : BaseEntity
     {
         private readonly IRepository<T> repo=_repo;
+
+        public Task<List<T>> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken)
+        {
+            return repo.FindAsync(predicate, cancellationToken);
+        }
+
         public async Task<List<T>> GetAllAsync(CancellationToken cancellationToken)
         {
             return await repo.GetAllAsync(cancellationToken);

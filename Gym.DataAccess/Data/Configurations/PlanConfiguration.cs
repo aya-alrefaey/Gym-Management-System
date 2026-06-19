@@ -41,7 +41,7 @@ namespace Gym.Data.Configurations
                 .IsUnique();
 
             builder.HasIndex(p => p.IsActive);
-            builder.HasQueryFilter(p => !p.IsDeleted && p.IsActive);
+            builder.HasQueryFilter(p => !p.IsDeleted );
         }
     }
 }

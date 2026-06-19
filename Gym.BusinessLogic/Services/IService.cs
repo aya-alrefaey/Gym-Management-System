@@ -14,9 +14,10 @@ namespace Gym.BusinessLogic.Services
         public Task<T?> GetByIdAsync(int id, CancellationToken cancellationToken);
         public Task<List<T>> GetAllWithDeletedAsync(CancellationToken cancellationToken);
         public Task<List<T>> GetAllDeletedAsync(CancellationToken cancellationToken);
-       
-      
 
-        
+        public Task<List<T>> FindAsync(Expression<Func<T, bool>> predicate, CancellationToken cancellationToken);
+
+
+
     }
 }

@@ -54,6 +54,10 @@ namespace Gym.BusinessLogic.Services
             {
                 return Result.Failure("Plan not found.");
             }
+            if (!plan.IsActive)
+            {
+                return Result.Failure("Plan is not active.");
+            }
 
             //var membership = new Membership
             //{

@@ -33,8 +33,10 @@ namespace Gym.Presentation.Controllers
             var members = await memberService.GetAllAsync(cancellationToken)
                               ?? new List<Member>();
 
-            var plans = await planService.GetAllAsync(cancellationToken)
-                           ?? new List<Plan>();
+            //var plans = await planService.GetAllAsync(cancellationToken)
+            //               ?? new List<Plan>();
+            var plans = await planService.FindAsync(p=>p.IsActive,cancellationToken)
+                          ?? new List<Plan>();
             if (!members.Any() && !plans.Any())
             {
                 TempData["ErrorMessage"] = "No members or plans found.";
