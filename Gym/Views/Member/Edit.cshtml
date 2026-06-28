@@ -16,8 +16,16 @@
                             
                             <div class="profile-header-zone text-center mb-5">
                                 <div class="profile-avatar-wrapper mb-3">
-                                    <img src="@(Model.PhotoUrl == null ? Url.Content("~/images/personicon.jpg") : Model.PhotoUrl)"
-                                         alt="@Model.Name" class="profile-avatar-img" />
+                                    @* <img src="@(Model.PhotoUrl == null ?
+                                        Url.Content("~/images/personicon.jpg") : Model.PhotoUrl)"
+                                         alt="@Model.Name" class="profile-avatar-img" /> *@
+
+                                    <img src="@(string.IsNullOrWhiteSpace(Model.PhotoUrl)
+                                                                     ? Url.Content("~/images/personicon.jpg")
+                                                                      : Url.Action("ReturnPhoto", "Member", new { fileName = Model.PhotoUrl }))"
+                                         alt="Member Avatar"
+                                         class="rounded-circle"
+                                         style="width: 150px; height: 150px;object-fit: cover;" />
                                 </div>
                                 <h2 class="member-name-heading">@Model.Name</h2>
                             </div>

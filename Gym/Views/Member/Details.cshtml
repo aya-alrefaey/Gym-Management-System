@@ -13,7 +13,15 @@
             <div class="profile-header-flat">
                 <div class="d-flex align-items-center gap-4">
                     <div class="avatar-holder">
-                        <img src=@(Model.PhotoUrl==null?Url.Content("~/images/personicon.jpg"):Model.PhotoUrl) alt="MemberPhoto" class="rounded-circle" style="width: 100px; height: 100px; object-fit: cover;" />
+                        @* <img src=@(Model.PhotoUrl==null?Url.Content("~/images/personicon.jpg"):
+                        Model.PhotoUrl) alt="MemberPhoto" class="rounded-circle" 
+                        style="width: 100px; height: 100px; object-fit: cover;" /> *@
+                        <img src="@(string.IsNullOrWhiteSpace(Model.PhotoUrl)
+                            ? Url.Content("~/images/personicon.jpg")
+                             : Url.Action("ReturnPhoto", "Member", new { fileName = Model.PhotoUrl }))"
+                             alt="Member Avatar"
+                             class="rounded-circle"
+                             style="width: 100px; height: 100px; object-fit: cover;" />
                     </div>
                     <div class="header-info">
                         <h2 class="text-primary-color">@Model.Name</h2>

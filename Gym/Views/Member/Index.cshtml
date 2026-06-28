@@ -52,12 +52,12 @@
                         <tr>
                             <td>
                                     <span class="avatar">
-                                        <img src="@(item.PhotoUrl == null
-                                                                 ? Url.Content("~/images/personicon.jpg")
-                                                                 : item.PhotoUrl)"
-                                             alt="Default Avatar"
+                                        <img src="@(string.IsNullOrWhiteSpace(item.PhotoUrl)
+                                                          ? Url.Content("~/images/personicon.jpg")
+                                                          : Url.Action("ReturnPhoto", "Member", new { fileName = item.PhotoUrl }))"
+                                             alt="Member Avatar"
                                              class="rounded-circle"
-                                             style="width: 40px; height: 40px;" />
+                                             style="width: 40px; height: 40px; object-fit: cover;" />
                                     </span>
                             </td>
                             <td><span>@item.Name</span></td>

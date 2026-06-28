@@ -1,3 +1,4 @@
+using Gym.BusinessLogic.Attachment;
 using Gym.BusinessLogic.Mapper;
 using Gym.BusinessLogic.Services;
 using Gym.Data.contexts;
@@ -5,6 +6,7 @@ using Gym.DataAccess.Repositories;
 using Gym.DataAccess.UnitOfWork;
 using Gym.DataSeeder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,7 @@ builder.Services.AddAutoMapper(config => { }, typeof(MemberProfile).Assembly);
 builder.Services.AddScoped<ISessionService, SessionService>();
 builder.Services.AddScoped<IMembershipService, MembershipService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IAttachment, Attachment>();
 
 
 builder.Services.AddDbContext<GymDbcontext>(options =>
@@ -44,6 +47,14 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+//var uploadsPath = Path.Combine(app.Environment.ContentRootPath, "Uploads");
+//Directory.CreateDirectory(uploadsPath);
+//app.UseStaticFiles(new StaticFileOptions
+//{
+//    FileProvider = new PhysicalFileProvider(uploadsPath),
+//    RequestPath = "/Uploads"
+//});
 
 app.UseRouting();
 

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Gym.BusinessLogic.Attachment;
 using Gym.BusinessLogic.Helpers;
 using Gym.BusinessLogic.ViewModels.Member;
 using Gym.DataAccess.Repositories;
@@ -20,10 +21,12 @@ namespace Gym.BusinessLogic.Services
         //private readonly IRepository<HealthRecord> recordrepo;
         private readonly IUnitOfWork unitOfWork;
         private readonly IMapper Mapper;
-        public MemberService(IUnitOfWork _unitofwork,IMapper mapper):base(_unitofwork.Members){
+        private readonly IAttachment attachment;
+        public MemberService(IUnitOfWork _unitofwork,IMapper mapper,IAttachment _attachment ):base(_unitofwork.Members){
             
             unitOfWork = _unitofwork ;
             Mapper = mapper;
+            attachment = _attachment;
         }
         public async Task<List<MemberViewModel>> GetAllMembers(CancellationToken cancellationToken)
         {
@@ -48,6 +51,18 @@ namespace Gym.BusinessLogic.Services
 
             if (phoneExists)
                 return Result.Failure("Phone already exists");
+
+            if (vm.Photo == null || vm.Photo.Length == 0)
+                return Result.Failure("Photo is required");
+
+            var photoName = await attachment.UploadFileAsync(
+                vm.Photo.OpenReadStream(),
+                vm.Photo.FileName,
+                "Uploads/Members",
+                cancellationToken);
+
+            if (photoName == null)
+                return Result.Failure("Failed to upload photo");
             //var member = new Member
             //{
             //    Name = vm.Name,
@@ -74,7 +89,7 @@ namespace Gym.BusinessLogic.Services
             //    }
             //};
             var member = Mapper.Map<Member>(vm);
-
+            member.Photo = photoName;
             await unitOfWork.Members.AddAsync(member, cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);
 
@@ -123,6 +138,9 @@ namespace Gym.BusinessLogic.Services
             if (healthrecord is not null)
             {
                 await unitOfWork.HealthRecords.SoftDelete(healthrecord, cancellationToken);
+            }
+            if (data.Photo is not null) {
+                await attachment.DeleteFileAsync(data.Photo, "Uploads/Members", cancellationToken);
             }
             await unitOfWork.Members.SoftDelete(data, cancellationToken);
             await unitOfWork.CommitAsync(cancellationToken);

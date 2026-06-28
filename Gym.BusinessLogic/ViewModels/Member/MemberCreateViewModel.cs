@@ -1,5 +1,6 @@
 ﻿using Gym.enums;
 using Gym.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,9 +12,6 @@ namespace Gym.BusinessLogic.ViewModels.Member
 {
     public class MemberCreateViewModel
     {
-
-
-
         [Required]
         [StringLength(100)]
         public string Name { get; set; }
@@ -61,6 +59,8 @@ namespace Gym.BusinessLogic.ViewModels.Member
 
         [StringLength(500)]
         public string? Note { get; set; }
+        [Required]
+        public IFormFile Photo { get; set; }
 
     }
 }

@@ -1,4 +1,5 @@
-﻿using Gym.BusinessLogic.Helpers;
+﻿using Gym.BusinessLogic.Attachment;
+using Gym.BusinessLogic.Helpers;
 using Gym.BusinessLogic.Services;
 using Gym.BusinessLogic.ViewModels.Member;
 using Gym.enums;
@@ -12,16 +13,18 @@ namespace Gym.Presentation.Controllers
     {
         private readonly IMemberService service;
         private readonly IHealthRecordService recordservice;
-        public MemberController(IMemberService _service, IHealthRecordService _recordservice)
+        private readonly IAttachment attachment;
+        public MemberController(IMemberService _service, IHealthRecordService _recordservice, IAttachment _attachment)
         {
             service = _service;
             recordservice = _recordservice;
+            attachment = _attachment;
         }
         public async Task<IActionResult> Index(CancellationToken cancellationtoken)
         {
             var data=await service.GetAllMembers(cancellationtoken);
             
-            
+                
             return View(data);
         }
         public async Task<IActionResult> Details(int id, CancellationToken cancellationToken)
@@ -112,6 +115,18 @@ namespace Gym.Presentation.Controllers
             return RedirectToAction(nameof(Index));
 
 
+        }
+
+        public async Task<IActionResult> ReturnPhoto(string fileName)
+        {
+            var file = await attachment.GetFileAsync(fileName, "Uploads/Members");
+
+            if (file == null)
+            {
+                return NotFound();
+            }
+
+            return File(file.Value.stream, file.Value.ContentType);
         }
 
     }
