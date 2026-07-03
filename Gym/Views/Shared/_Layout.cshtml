@@ -76,11 +76,25 @@
                             Schedule
                         </a>
                     </li>
-                    <li class="nav-item ms-lg-3">
-                        <form asp-action="Logout" asp-controller="Account" method="post" class="d-inline">
-                            <button type="submit" class="btn btn-outline-danger btn-sm px-3 rounded-pill">Logout</button>
-                        </form>
-                    </li>
+                    @if (User.Identity?.IsAuthenticated == true)
+                        {
+                        <li class="nav-item ms-lg-3">
+                            <form asp-action="Logout" asp-controller="Account" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-outline-danger btn-sm px-3 rounded-pill">Logout</button>
+                            </form>
+                        </li>
+                        }
+                        else
+                        {
+                        <li class="nav-item ms-lg-3">
+                            <a asp-action="Login"
+                               asp-controller="Account"
+                               class="btn btn-outline-danger btn-sm px-3 rounded-pill">
+                                Login
+                            </a>
+                        </li>
+                        }
+
                 </ul>
             </div>
         </div>

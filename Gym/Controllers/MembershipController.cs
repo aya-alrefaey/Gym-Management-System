@@ -2,11 +2,13 @@
 using Gym.BusinessLogic.ViewModels.Membership;
 using Gym.BusinessLogic.ViewModels.Session;
 using Gym.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gym.Presentation.Controllers
 {
+    [Authorize]
     public class MembershipController : Controller
     {
         private readonly IMembershipService service;

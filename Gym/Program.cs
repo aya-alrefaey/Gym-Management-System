@@ -2,9 +2,11 @@ using Gym.BusinessLogic.Attachment;
 using Gym.BusinessLogic.Mapper;
 using Gym.BusinessLogic.Services;
 using Gym.Data.contexts;
+using Gym.DataAccess.Data.Identity;
 using Gym.DataAccess.Repositories;
 using Gym.DataAccess.UnitOfWork;
 using Gym.DataSeeder;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 
@@ -28,13 +30,30 @@ builder.Services.AddScoped<IMembershipService, MembershipService>();
 builder.Services.AddScoped<IBookingService, BookingService>();
 builder.Services.AddScoped<IAttachment, Attachment>();
 
-
 builder.Services.AddDbContext<GymDbcontext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequiredUniqueChars = 1;
+  
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(60);
+    options.Lockout.MaxFailedAccessAttempts = 5;
+    options.Lockout.AllowedForNewUsers = true;
+   
+    options.User.RequireUniqueEmail = true;
+}).AddEntityFrameworkStores<GymDbcontext>()
+    .AddDefaultTokenProviders(); ;
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+    options.ExpireTimeSpan = TimeSpan.FromHours(24);
+    options.SlidingExpiration = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,7 +76,7 @@ app.UseStaticFiles();
 //});
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -67,7 +86,10 @@ app.MapControllerRoute(
 await using (var scope = app.Services.CreateAsyncScope())
 {
 var context = scope.ServiceProvider.GetRequiredService<GymDbcontext>();
-    await DataSeeder.SeedAllData(context);
+    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<ApplicationRole>>();
+    var config = scope.ServiceProvider.GetRequiredService<IConfiguration>();
+    await DataSeeder.SeedAllData(context, userManager, roleManager, config);
 }
 
 

@@ -15,7 +15,7 @@ namespace Gym.DataAccess.UnitOfWork
         IPlanRepository Plans { get; }
         ITrainerRepository Trainers { get; }
         IRepository<HealthRecord> HealthRecords { get; }
-        IRepository<User> Users { get; }
+        IRepository<Person>   Persons { get; }
         IRepository<Category> Categories { get; }
         ISessionRepository Sessions { get; }
         IMembershipRepository Memberships { get; }

@@ -1,9 +1,11 @@
 ﻿using Gym.BusinessLogic.Services;
 using Gym.BusinessLogic.ViewModels.Trainer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gym.Presentation.Controllers
 {
+    [Authorize]
     public class TrainerController : Controller
     {
         private readonly ITrainerService service;

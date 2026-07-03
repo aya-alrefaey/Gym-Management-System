@@ -38,14 +38,14 @@ namespace Gym.BusinessLogic.Services
         public async Task<Result> CreateAsync(MemberCreateViewModel vm, CancellationToken cancellationToken)
         {
 
-            var emailExists = await unitOfWork.Users.ExistAsync(
+            var emailExists = await unitOfWork.Persons.ExistAsync(
                 m => m.Email == vm.Email,
                 cancellationToken);
 
             if (emailExists)
                 return Result.Failure("Email already exists");
 
-            var phoneExists = await unitOfWork.Users.ExistAsync(
+            var phoneExists = await unitOfWork.Persons.ExistAsync(
                 m => m.Phone == vm.Phone,
                 cancellationToken);
 
@@ -176,14 +176,14 @@ namespace Gym.BusinessLogic.Services
             if (member == null)
                 return Result.Failure("Member not found");
 
-            var emailExists = await unitOfWork.Users.ExistAsync(
+            var emailExists = await unitOfWork.Persons.ExistAsync(
                 m => m.Email == vm.Email && m.Id != vm.Id,
                 cancellationToken);
 
             if (emailExists)
                 return Result.Failure("Email already exists");
 
-            var phoneExists = await unitOfWork.Users.ExistAsync(
+            var phoneExists = await unitOfWork.Persons.ExistAsync(
                 m => m.Phone == vm.Phone && m.Id != vm.Id,
                 cancellationToken);
 

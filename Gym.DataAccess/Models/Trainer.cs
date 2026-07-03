@@ -2,7 +2,7 @@
 
 namespace Gym.Models
 {
-    public class Trainer:User
+    public class Trainer:Person
     {
        
         public Specialties Specialties { get; set; }

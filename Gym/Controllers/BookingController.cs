@@ -1,11 +1,13 @@
 ﻿using Gym.BusinessLogic.Services;
 using Gym.BusinessLogic.ViewModels.Booking;
 using Gym.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gym.Presentation.Controllers
 {
+    [Authorize]
     public class BookingController:Controller
     {
         private readonly IBookingService service;

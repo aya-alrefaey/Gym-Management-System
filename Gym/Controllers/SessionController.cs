@@ -4,11 +4,13 @@ using Gym.BusinessLogic.Services;
 using Gym.BusinessLogic.ViewModels.Session;
 using Gym.BusinessLogic.ViewModels.Trainer;
 using Gym.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Gym.Presentation.Controllers
 {
+    [Authorize]
     public class SessionController : Controller
     {
         private readonly ISessionService service;

@@ -4,11 +4,13 @@ using Gym.BusinessLogic.ViewModels;
 using Gym.BusinessLogic.ViewModels.Plan;
 using Gym.Data.contexts;
 using Gym.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gym.Controllers
 {
+    [Authorize]
     public class PlanController : Controller
     {
         private readonly IPlanService service;

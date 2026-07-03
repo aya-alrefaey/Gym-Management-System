@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Gym.Data.Configurations
 {
-    public class UserConfigurations : IEntityTypeConfiguration<User>
+    public class PersonConfigurations : IEntityTypeConfiguration<Person>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public void Configure(EntityTypeBuilder<Person> builder)
         {
             builder.Property(u => u.Name)
                 .IsRequired()

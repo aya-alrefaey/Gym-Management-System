@@ -2,7 +2,7 @@
 
 namespace Gym.Models
 {
-    public class Member:User
+    public class Member:Person
     {
         
         public DateTime JoinDate { get; set; }

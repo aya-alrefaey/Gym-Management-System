@@ -2,7 +2,7 @@
 
 namespace Gym.Models
 {
-    public class User:BaseEntity
+    public class Person:BaseEntity
     {
         public string Name { get; set; }
 

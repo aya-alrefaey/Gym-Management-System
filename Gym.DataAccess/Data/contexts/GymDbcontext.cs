@@ -1,9 +1,11 @@
-﻿using Gym.Models;
+﻿using Gym.DataAccess.Data.Identity;
+using Gym.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Gym.Data.contexts
 {
-    public class GymDbcontext: DbContext
+    public class GymDbcontext : IdentityDbContext<ApplicationUser, ApplicationRole,string>
     {
         public GymDbcontext(DbContextOptions<GymDbcontext> options)
            : base(options)
@@ -11,7 +13,7 @@ namespace Gym.Data.contexts
 
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<Person> Persons { get; set; }
 
         public DbSet<HealthRecord> HealthRecords { get; set; }
         public DbSet<Plan> Plans { get; set; }
@@ -26,6 +28,7 @@ namespace Gym.Data.contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(GymDbcontext).Assembly);
         }
     }

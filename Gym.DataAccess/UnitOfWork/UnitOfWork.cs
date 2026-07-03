@@ -20,7 +20,7 @@ namespace Gym.DataAccess.UnitOfWork
         private IPlanRepository _plans;
         private ITrainerRepository _trainers;
         private IRepository<HealthRecord> _healthRecords;
-        private IRepository<User> _users;
+        private IRepository<Person> _persons;
         private IRepository<Category> _categories;
         private ISessionRepository _session;
         private IMembershipRepository _membership;
@@ -35,7 +35,7 @@ namespace Gym.DataAccess.UnitOfWork
 
         public IRepository<HealthRecord> HealthRecords => _healthRecords??= new Repository<HealthRecord>(_context);
 
-        public IRepository<User> Users => _users??= new Repository<User>(_context);
+        public IRepository<Person> Persons => _persons??= new Repository<Person>(_context);
         public IRepository<Category> Categories => _categories ??= new Repository<Category>(_context);
 
         public ISessionRepository Sessions => _session ??= new SessionRepository(_context);

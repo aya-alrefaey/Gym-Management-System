@@ -2,13 +2,17 @@
 using Gym.BusinessLogic.Helpers;
 using Gym.BusinessLogic.Services;
 using Gym.BusinessLogic.ViewModels.Member;
+using Gym.DataAccess.Data.Identity;
 using Gym.enums;
 using Gym.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Numerics;
 
 namespace Gym.Presentation.Controllers
 {
+    [Authorize]
+    //[Authorize(Roles = IdentityRoles.Admin)]
     public class MemberController:Controller
     {
         private readonly IMemberService service;

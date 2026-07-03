@@ -1,0 +1,201 @@
+﻿/* ==========================================================================
+   --- ستايل صفحة منع الدخول (Vibrant Access Denied UI) ---
+   ========================================================================== */
+
+:root {
+    --primary-orange: #ff4a17; /* البرتقالي الرياضي للبراند */
+    --primary-gradient: linear-gradient(135deg, #ff4a17 0%, #ff6b42 100%);
+    --danger-red: #ef4444; /* الأحمر الرقمي التحذيري للخطأ */
+    --dark-bg: #111827; /* أسود الفخامة الأساسي الخلفي */
+    --dark-card: #1e293b; /* رمادي معتم للكارت الرئيسي */
+    --text-muted: #94a3b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f172a 0%, #111827 100%); /* عمق لوني للباك جراوند */
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* الكارت الفلات المفرود الأساسي */
+.access-denied-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--dark-card);
+    padding: 60px;
+    border-radius: 20px;
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    max-width: 960px;
+    width: 100%;
+}
+
+/* المحتوى الأيسر */
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.error-icon-wrapper {
+    font-size: 3.5rem;
+    color: var(--danger-red);
+    line-height: 1;
+    filter: drop-shadow(0 0 15px rgba(239, 68, 68, 0.3));
+    animation: pulseIcon 3s infinite ease-in-out;
+}
+
+.error-heading {
+    font-size: 3.2rem;
+    color: #ffffff;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin: 0;
+}
+
+.error-highlight {
+    color: var(--primary-orange);
+    position: relative;
+}
+
+.error-message {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-weight: 500;
+    margin: 0;
+}
+
+/* صندوق رمز الخطأ التكنولوجي الصريح */
+.error-code-box {
+    background-color: #111827;
+    border-left: 4px solid var(--danger-red);
+    padding: 14px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.92rem;
+    color: #f1f5f9;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.code-label {
+    color: var(--danger-red);
+}
+
+/* منطقة الأزرار الموحدة */
+.button-group-zone {
+    margin-top: 10px;
+}
+
+.btn-primary-spec {
+    background: var(--primary-gradient);
+    color: white !important;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(255, 74, 23, 0.25);
+}
+
+    .btn-primary-spec:hover {
+        background: #ffffff !important;
+        color: var(--dark-bg) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+    }
+
+/* القسم الأيمن: الجرافيك المتوهج للقفل */
+.visual-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.lock-icon-glow {
+    font-size: 8.5rem;
+    color: rgba(255, 255, 255, 0.03);
+    background: linear-gradient(135deg, rgba(255, 74, 23, 0.15) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 30px rgba(255, 74, 23, 0.15));
+    animation: floatLock 4s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   --- Animations ---
+   ========================================================================== */
+@keyframes floatLock {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(2deg);
+    }
+}
+
+@keyframes pulseIcon {
+    0%, 100% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+}
+
+/* ==========================================================================
+   --- Responsive Media Queries ---
+   ========================================================================== */
+@media (max-width: 992px) {
+    .access-denied-wrapper {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 20px;
+    }
+
+    .visual-section {
+        display: none; /* إخفاء الأيقونة الجانبية الكبيرة على التابلت والموبايل */
+    }
+
+    .error-heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .access-denied-wrapper {
+        padding: 30px 20px;
+    }
+
+    .error-heading {
+        font-size: 2.1rem;
+    }
+
+    .btn-primary-spec {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
